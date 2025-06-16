@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-blush-400 text-white rounded-md hover:bg-blush-500 transition;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-gray-900 rounded-md hover:bg-gray-50 transition border border-gray-200;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+} 

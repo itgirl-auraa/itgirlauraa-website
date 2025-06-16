@@ -1,0 +1,270 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const categories = [...new Set(allPosts.map(post => post.data.category))];
+
+// Featured posts (latest 2)
+const featuredPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
+
+// Latest posts (excluding featured)
+const latestPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(2, 8);
+
+// Sort options
+const sortOptions = [
+  { label: 'Latest First', value: 'latest' },
+  { label: 'Most Popular', value: 'popular' },
+  { label: 'Most Read', value: 'most-read' },
+];
+
+// Format date
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(date);
+};
+---
+
+<Layout title="Glow Journal - Beauty, Wellness, and Mindful Living">
+  <!-- Hero Section -->
+  <section class="py-24 bg-[#F7E7E6]/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4">
+        Glow Journal
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 font-light max-w-2xl mx-auto">
+        Thoughtful articles on beauty, wellness, and mindful living...
+      </p>
+    </div>
+  </section>
+
+  <!-- Search & Filter Section -->
+  <section class="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-y border-gray-100 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <!-- Search -->
+        <div class="relative w-full md:w-auto md:min-w-[300px]">
+          <input 
+            type="search" 
+            placeholder="Search articles..."
+            class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+
+        <!-- Categories -->
+        <div class="flex overflow-x-auto hide-scrollbar gap-2 py-1 w-full md:w-auto">
+          <button class="px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium whitespace-nowrap">
+            All
+          </button>
+          {categories.map(category => (
+            <button class="px-4 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm font-medium whitespace-nowrap transition-colors">
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <!-- Sort -->
+        <div class="relative w-full md:w-auto">
+          <select 
+            class="w-full md:w-auto appearance-none pl-4 pr-10 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
+          >
+            {sortOptions.map(option => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Articles -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl md:text-3xl text-gray-900 mb-8">
+        Featured Articles
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {featuredPosts.map(post => (
+          <article class="group">
+            <!-- Image -->
+            <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-gray-100 mb-6">
+              <img 
+                src={post.data.image} 
+                alt={post.data.title}
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            <!-- Content -->
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  {post.data.category}
+                </span>
+                <time class="flex items-center text-sm text-gray-500">
+                  <svg class="mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {formatDate(post.data.date)}
+                </time>
+              </div>
+
+              <h3 class="font-display text-2xl text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                {post.data.title}
+              </h3>
+
+              <p class="text-gray-600 mb-4 line-clamp-2">
+                {post.data.description}
+              </p>
+
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-500">
+                  {post.data.readingTime} min read
+                </span>
+                <a 
+                  href={`/journal/${post.slug}`}
+                  class="inline-flex items-center px-4 py-2 rounded-full bg-primary hover:bg-primary-dark text-white text-sm font-medium transition-colors"
+                >
+                  Read More
+                  <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl md:text-3xl text-gray-900 mb-8">
+        Latest Articles
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {latestPosts.map(post => (
+          <article class="group bg-white rounded-2xl shadow-soft hover:shadow-md transition-all duration-300">
+            <!-- Image -->
+            <div class="aspect-[4/3] rounded-t-2xl overflow-hidden">
+              <img 
+                src={post.data.image} 
+                alt={post.data.title}
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  {post.data.category}
+                </span>
+                <time class="text-sm text-gray-500">
+                  {formatDate(post.data.date)}
+                </time>
+              </div>
+
+              <h3 class="font-display text-xl text-gray-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                {post.data.title}
+              </h3>
+
+              <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                {post.data.description}
+              </p>
+
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-500">
+                  {post.data.readingTime} min read
+                </span>
+                <a 
+                  href={`/journal/${post.slug}`}
+                  class="text-primary hover:text-primary-dark text-sm font-medium transition-colors"
+                >
+                  Read More →
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-12 flex flex-col items-center gap-8">
+        <button class="px-8 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium transition-all duration-300">
+          Load More
+        </button>
+
+        <div class="flex items-center gap-2">
+          {[1, 2, 3, '...', 8].map((page) => (
+            <button 
+              class={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
+                page === 1 
+                  ? 'bg-primary text-white' 
+                  : 'text-gray-600 hover:bg-primary/10'
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-20 bg-primary/10">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl text-gray-900 mb-4">
+        Stay in the Glow
+      </h2>
+      <p class="text-gray-600 mb-8">
+        Join our community for weekly beauty insights, self-care tips, and exclusive content.
+      </p>
+      <form class="max-w-md mx-auto">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input 
+            type="email" 
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <button 
+            type="submit"
+            class="px-8 py-3 rounded-full bg-primary hover:bg-primary-dark text-white font-medium transition-all duration-300"
+          >
+            Subscribe
+          </button>
+        </div>
+        <p class="text-sm text-gray-500 mt-4">
+          By subscribing, you agree to receive our newsletter. Unsubscribe any time.
+        </p>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hide scrollbar for category filters */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style> 

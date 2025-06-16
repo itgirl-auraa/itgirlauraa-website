@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const about = await getEntry('pages', 'about');
+const { Content } = await about.render();
+---
+
+<Layout title="About Me - It Girl Blog">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="prose prose-rose lg:prose-lg mx-auto">
+      <img 
+        src={about.data.image} 
+        alt="About Me" 
+        class="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
+      />
+      <Content />
+    </div>
+  </div>
+</Layout> 

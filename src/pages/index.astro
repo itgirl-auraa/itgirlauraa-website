@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get latest picks and posts
+const picks = await getCollection('picks');
+const latestPicks = picks
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 3);
+
+const posts = await getCollection('posts');
+const latestPosts = posts
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 3);
+---
+
+<Layout title="It Girl Auraa - Curated Lifestyle & Beauty">
+	<!-- Hero Section -->
+	<section class="relative min-h-[80vh] flex items-center justify-center bg-[#FDFCF8] overflow-hidden">
+		<div class="absolute inset-0 z-0">
+			<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#FDFCF8]/90"></div>
+			<img 
+				src="/hero-collage.jpg" 
+				alt="Lifestyle Collage"
+				class="w-full h-full object-cover opacity-40"
+			/>
+		</div>
+		<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h1 class="font-display text-4xl md:text-6xl text-gray-900 mb-6">
+				Curated essentials for the girl she's becoming ✨
+			</h1>
+			<p class="text-lg md:text-xl text-gray-600 mb-8 font-light">
+				Discover beauty secrets, lifestyle tips, and carefully selected products for your journey to becoming that girl.
+			</p>
+			<a 
+				href="/picks" 
+				class="inline-block bg-[#C4A3B0] hover:bg-[#B08E9B] text-white font-medium px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
+			>
+				Explore My Picks
+			</a>
+		</div>
+	</section>
+
+	<!-- That Girl Picks Section -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-center font-display text-3xl md:text-4xl text-gray-900 mb-4">
+				It Girl Picks
+			</h2>
+			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+				Curated collections of my favorite products, from skincare essentials to room decor that sparks joy.
+			</p>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{latestPicks.map(pick => (
+					<div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+						<div class="aspect-[3/4] overflow-hidden">
+							<img 
+								src={pick.data.image}
+								alt={pick.data.title}
+								class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+							/>
+						</div>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						<div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+							<span class="text-sm font-medium text-[#C4A3B0] bg-white/90 px-3 py-1 rounded-full">
+								{pick.data.category}
+							</span>
+							<h3 class="font-display text-xl mt-3 mb-2">{pick.data.title}</h3>
+							<p class="text-sm text-white/90 mb-4 line-clamp-2">
+								{pick.data.description}
+							</p>
+							<a 
+								href={`/picks/${pick.slug}`}
+								class="inline-block text-sm font-medium hover:underline"
+							>
+								View Collection →
+							</a>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Glow Journal Section -->
+	<section class="py-20 bg-[#FDFCF8]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-center font-display text-3xl md:text-4xl text-gray-900 mb-4">
+				Glow Journal
+			</h2>
+			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+				Tips, routines, and lifestyle inspiration to help you become your best self.
+			</p>
+
+			<div class="space-y-16">
+				{latestPosts.map((post, index) => (
+					<div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
+						<div class="w-full md:w-1/2">
+							<div class="aspect-[4/3] overflow-hidden rounded-lg shadow-md">
+								<img 
+									src={post.data.image}
+									alt={post.data.title}
+									class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+								/>
+							</div>
+						</div>
+						<div class="w-full md:w-1/2 md:px-6">
+							<div class="flex items-center gap-4 mb-4">
+								<span class="text-sm font-medium text-[#C4A3B0]">
+									{post.data.category}
+								</span>
+								<span class="text-sm text-gray-500">
+									{new Date(post.data.date).toLocaleDateString('en-US', {
+										month: 'long',
+										day: 'numeric',
+										year: 'numeric'
+									})}
+								</span>
+							</div>
+							<h3 class="font-display text-2xl md:text-3xl text-gray-900 mb-4">
+								{post.data.title}
+							</h3>
+							<p class="text-gray-600 mb-6 line-clamp-3">
+								{post.data.description}
+							</p>
+							<a 
+								href={`/blog/${post.slug}`}
+								class="inline-block font-medium text-[#C4A3B0] hover:text-[#B08E9B] transition-colors duration-300"
+							>
+								Read More →
+							</a>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.font-display {
+		font-family: 'Playfair Display', serif;
+	}
+</style>

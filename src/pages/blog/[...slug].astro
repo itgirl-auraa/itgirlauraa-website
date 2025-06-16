@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Get related posts (same category, excluding current post)
+const allPosts = await getCollection('posts');
+const relatedPosts = allPosts
+  .filter(p => p.data.category === post.data.category && p.slug !== post.slug)
+  .slice(0, 3);
+---
+
+<Layout 
+  title={`${post.data.title} - Glow Journal`}
+  description={post.data.description}
+>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <header class="text-center mb-12">
+      <div class="flex items-center justify-center gap-4 text-sm text-gray-500 mb-4">
+        <span>{new Date(post.data.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+        <span>•</span>
+        <span>{post.data.category}</span>
+      </div>
+      <h1 class="font-display text-4xl md:text-5xl text-gray-900 mb-6">{post.data.title}</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">{post.data.description}</p>
+      
+      <!-- Pinterest Share Button -->
+      <button class="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+        </svg>
+        Save to Pinterest
+      </button>
+    </header>
+
+    <!-- Featured Image -->
+    {post.data.image && (
+      <div class="aspect-[16/9] rounded-lg overflow-hidden bg-blush-50 mb-12">
+        <img 
+          src={post.data.image} 
+          alt={post.data.title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    )}
+
+    <!-- Content -->
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+
+    <!-- Affiliate Disclosure -->
+    <p class="mt-12 text-sm text-gray-500 italic">
+      *This post may contain affiliate links. If you make a purchase through these links, I may earn a small commission at no additional cost to you.
+    </p>
+
+    <!-- Author Bio -->
+    <div class="mt-12 p-6 bg-warm-50 rounded-lg">
+      <div class="flex items-center gap-6">
+        <div class="w-20 h-20 rounded-full overflow-hidden bg-warm-100">
+          <img src="/uploads/about-me.jpg" alt="Author" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <h3 class="font-display text-xl mb-2">Written by Sarah</h3>
+          <p class="text-gray-600">
+            Beauty enthusiast, lifestyle blogger, and your go-to girl for all things aesthetic and self-care.
+            Follow me for more tips and inspiration!
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  {relatedPosts.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-display text-2xl text-gray-900 mb-8">You Might Also Like</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {relatedPosts.map((relatedPost) => (
+          <article class="group">
+            <a href={`/blog/${relatedPost.slug}`} class="block">
+              <div class="aspect-video rounded-lg overflow-hidden bg-warm-50 mb-4">
+                {relatedPost.data.image ? (
+                  <img 
+                    src={relatedPost.data.image} 
+                    alt={relatedPost.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-warm-100"></div>
+                )}
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-500 mb-2">
+                <span>{new Date(relatedPost.data.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                <span>•</span>
+                <span>{relatedPost.data.category}</span>
+              </div>
+              <h3 class="font-display text-xl mb-2 group-hover:text-blush-500 transition">
+                {relatedPost.data.title}
+              </h3>
+              <p class="text-gray-600">{relatedPost.data.description}</p>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Newsletter CTA -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="bg-blush-50 rounded-2xl p-8 md:p-12">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-display text-2xl md:text-3xl text-gray-900 mb-4">
+          Enjoyed this post? Join our community!
+        </h2>
+        <p class="text-gray-600 mb-8">
+          Get weekly beauty tips, lifestyle inspiration, and exclusive content delivered straight to your inbox.
+        </p>
+        <form class="flex gap-2 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            class="flex-1 px-4 py-2 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blush-200"
+          >
+          <button 
+            type="submit" 
+            class="px-6 py-2 bg-blush-400 text-white rounded-md hover:bg-blush-500 transition"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout> 
