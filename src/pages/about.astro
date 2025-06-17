@@ -6,15 +6,20 @@ const about = await getEntry('pages', 'about');
 const { Content } = await about.render();
 ---
 
-<Layout title="About Me - It Girl Blog">
+<Layout title="About Me - It Girl Auraa">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="prose prose-rose lg:prose-lg mx-auto">
+    <div class="mb-10">
       <img 
         src={about.data.image} 
         alt="About Me" 
-        class="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
+        class="w-full h-64 md:h-96 object-cover rounded-lg border border-[#e6e0d4]"
       />
-      <Content />
     </div>
+    <article class="prose prose-lg max-w-none
+                    prose-headings:text-espresso
+                    prose-p:text-[#4B2F2F]
+                    prose-a:text-bronze hover:prose-a:text-[#7c4d36]">
+      <Content />
+    </article>
   </div>
-</Layout> 
+</Layout>

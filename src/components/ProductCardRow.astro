@@ -1,0 +1,27 @@
+---
+// ProductCardRow.astro
+interface Item {
+  title: string;
+  href: string;
+  img: string;
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
+  {items.map(item => (
+    <a 
+      href={item.href} 
+      target="_blank" 
+      rel="noopener" 
+      class="block bg-vanilla rounded-lg shadow-sm hover:shadow-md transition overflow-hidden border border-beige/50"
+    >
+      <img src={item.img} alt={item.title} class="w-full h-44 object-cover" />
+      <div class="p-3 text-center">
+        <h3 class="text-sm text-espresso font-medium">{item.title}</h3>
+        <p class="text-xs text-bronze mt-0.5">Shop Now →</p>
+      </div>
+    </a>
+  ))}
+</div> 

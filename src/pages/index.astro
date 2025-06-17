@@ -16,25 +16,25 @@ const latestPosts = posts
 
 <Layout title="It Girl Auraa - Curated Lifestyle & Beauty">
 	<!-- Hero Section -->
-	<section class="relative min-h-[80vh] flex items-center justify-center bg-[#FDFCF8] overflow-hidden">
+	<section class="relative min-h-[80vh] flex items-center justify-center bg-cream overflow-hidden">
 		<div class="absolute inset-0 z-0">
-			<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#FDFCF8]/90"></div>
+			<div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream/90"></div>
 			<img 
 				src="/hero-collage.jpg" 
 				alt="Lifestyle Collage"
-				class="w-full h-full object-cover opacity-40"
+				class="w-full h-full object-cover opacity-35"
 			/>
 		</div>
 		<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h1 class="font-display text-4xl md:text-6xl text-gray-900 mb-6">
+			<h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-espresso mb-4 sm:mb-6">
 				Curated essentials for the girl she's becoming ✨
 			</h1>
-			<p class="text-lg md:text-xl text-gray-600 mb-8 font-light">
+			<p class="text-base sm:text-lg md:text-xl text-bronze mb-6 sm:mb-8 font-light max-w-xl mx-auto">
 				Discover beauty secrets, lifestyle tips, and carefully selected products for your journey to becoming that girl.
 			</p>
 			<a 
 				href="/picks" 
-				class="inline-block bg-[#C4A3B0] hover:bg-[#B08E9B] text-white font-medium px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
+				class="inline-block w-full sm:w-auto bg-espresso hover:bg-espresso/80 text-white font-medium px-6 sm:px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-center"
 			>
 				Explore My Picks
 			</a>
@@ -42,16 +42,16 @@ const latestPosts = posts
 	</section>
 
 	<!-- That Girl Picks Section -->
-	<section class="py-20 bg-white">
+	<section class="py-12 sm:py-16 md:py-20 bg-vanilla">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center font-display text-3xl md:text-4xl text-gray-900 mb-4">
+			<h2 class="text-center font-display text-2xl sm:text-3xl md:text-4xl text-espresso mb-3 sm:mb-4">
 				It Girl Picks
 			</h2>
-			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+			<p class="text-center text-bronze mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
 				Curated collections of my favorite products, from skincare essentials to room decor that sparks joy.
 			</p>
 			
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 				{latestPicks.map(pick => (
 					<div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
 						<div class="aspect-[3/4] overflow-hidden">
@@ -61,18 +61,18 @@ const latestPosts = posts
 								class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
 							/>
 						</div>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-						<div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-							<span class="text-sm font-medium text-[#C4A3B0] bg-white/90 px-3 py-1 rounded-full">
+						<div class="absolute inset-0 bg-gradient-to-t from-espresso/70 to-transparent opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						<div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform translate-y-0 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+							<span class="text-xs sm:text-sm font-medium text-espresso bg-vanilla/90 px-2 sm:px-3 py-1 rounded-full">
 								{pick.data.category}
 							</span>
-							<h3 class="font-display text-xl mt-3 mb-2">{pick.data.title}</h3>
-							<p class="text-sm text-white/90 mb-4 line-clamp-2">
+							<h3 class="font-display text-lg sm:text-xl mt-2 sm:mt-3 mb-1 sm:mb-2">{pick.data.title}</h3>
+							<p class="text-xs sm:text-sm text-white/90 mb-3 sm:mb-4 line-clamp-2">
 								{pick.data.description}
 							</p>
 							<a 
 								href={`/picks/${pick.slug}`}
-								class="inline-block text-sm font-medium hover:underline"
+								class="inline-block text-xs sm:text-sm font-medium hover:underline"
 							>
 								View Collection →
 							</a>
@@ -84,18 +84,18 @@ const latestPosts = posts
 	</section>
 
 	<!-- Glow Journal Section -->
-	<section class="py-20 bg-[#FDFCF8]">
+	<section class="py-12 sm:py-16 md:py-20 bg-cream">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center font-display text-3xl md:text-4xl text-gray-900 mb-4">
+			<h2 class="text-center font-display text-2xl sm:text-3xl md:text-4xl text-espresso mb-3 sm:mb-4">
 				Glow Journal
 			</h2>
-			<p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-				Tips, routines, and lifestyle inspiration to help you become your best self.
+			<p class="text-center text-bronze mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
+				Beauty tips, skincare routines, and wellness inspiration for your journey to radiant living.
 			</p>
 
-			<div class="space-y-16">
+			<div class="space-y-8 sm:space-y-12 md:space-y-16">
 				{latestPosts.map((post, index) => (
-					<div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
+					<div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 sm:gap-8 items-center`}>
 						<div class="w-full md:w-1/2">
 							<div class="aspect-[4/3] overflow-hidden rounded-lg shadow-md">
 								<img 
@@ -106,11 +106,11 @@ const latestPosts = posts
 							</div>
 						</div>
 						<div class="w-full md:w-1/2 md:px-6">
-							<div class="flex items-center gap-4 mb-4">
-								<span class="text-sm font-medium text-[#C4A3B0]">
+							<div class="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+								<span class="text-xs sm:text-sm font-medium text-espresso">
 									{post.data.category}
 								</span>
-								<span class="text-sm text-gray-500">
+								<span class="text-xs sm:text-sm text-bronze/80">
 									{new Date(post.data.date).toLocaleDateString('en-US', {
 										month: 'long',
 										day: 'numeric',
@@ -118,15 +118,15 @@ const latestPosts = posts
 									})}
 								</span>
 							</div>
-							<h3 class="font-display text-2xl md:text-3xl text-gray-900 mb-4">
+							<h3 class="font-display text-xl sm:text-2xl md:text-3xl text-espresso mb-3 sm:mb-4">
 								{post.data.title}
 							</h3>
-							<p class="text-gray-600 mb-6 line-clamp-3">
+							<p class="text-sm sm:text-base text-bronze mb-4 sm:mb-6 line-clamp-3">
 								{post.data.description}
 							</p>
 							<a 
 								href={`/blog/${post.slug}`}
-								class="inline-block font-medium text-[#C4A3B0] hover:text-[#B08E9B] transition-colors duration-300"
+								class="inline-block font-medium text-espresso hover:text-espresso/80 transition-colors duration-300 text-sm sm:text-base"
 							>
 								Read More →
 							</a>

@@ -1,47 +1,58 @@
 ---
-title: "About It Girl"
-description: "Welcome to It Girl - your destination for curated lifestyle essentials, beauty insights, and mindful living inspiration."
+title: "About It Girl Auraa"
+description: "Meet Divya, the creator of It Girl Auraa — a curated lifestyle blog for beauty, wellness, and aesthetic living."
 image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=2000"
 ---
 
-## Welcome to It Girl ✨
+# Welcome to It Girl Auraa ✨
 
-Hey there! I'm Sarah, the founder of It Girl, and I'm so happy you're here. This space was created with a simple mission: to help you discover and cultivate your own unique style, both inside and out.
+Hi, I’m **Divya**, creator of **It Girl Auraa** — and I’m so glad you’re here.
 
-### Our Philosophy
+This space was born from a love of all things aesthetic, intentional, and empowering. Whether you're discovering your style, refining your routine, or building a soft life you love — you’re in the right place.
 
-It Girl isn't just about looking good – it's about feeling good and living intentionally. We believe that true style comes from:
+---
 
-- **Authenticity** - Embracing what makes you uniquely you
-- **Mindfulness** - Making conscious choices about what we bring into our lives
-- **Quality** - Investing in pieces that bring lasting joy and value
-- **Sustainability** - Being mindful of our impact on the planet
+## 💫 What I Believe
 
-### What You'll Find Here
+*It Girl Auraa* isn’t just about products — it’s about becoming the best version of yourself. The *It Girl* energy is all about:
 
-#### 🛍️ Curated Product Picks
-Carefully selected items that combine style, quality, and value. Each pick is personally tested and reviewed to ensure it meets our high standards.
+- **Authenticity** — Being you, unapologetically  
+- **Intentional Living** — Choosing beauty with purpose  
+- **Quality Over Quantity** — Investing in what actually works  
+- **Soft Power** — Confidence, calm, and glow from within  
 
-#### ✨ Beauty & Wellness
-From skincare routines to self-care rituals, discover tips and products that help you look and feel your best.
+---
 
-#### 🌿 Mindful Living
-Practical advice for creating a life that feels as good as it looks, focusing on wellness, personal growth, and sustainable choices.
+## 🛍️ What You’ll Find Here
 
-### Our Promise to You
+### 🛒 Curated Amazon Picks  
+Aesthetic and affordable finds I would genuinely buy myself — reviewed and recommended with care.
 
-Every product recommendation, every piece of advice, and every article is created with intention and integrity. As an Amazon Associate, I earn from qualifying purchases, but I only recommend products I truly believe in.
+### ✨ Glow-Up Guides  
+From beauty to wellness, discover rituals that actually make you feel good — not just look good.
 
-### Let's Connect
+### 🌿 Lifestyle Inspiration  
+Mindful routines, soft girl rituals, and everyday habits that make life a little more *you*.
 
-I love hearing from our community! Share your thoughts, questions, and suggestions:
+---
 
-- 📸 Follow on Instagram for daily inspiration
-- 📌 Find us on Pinterest for visual inspiration
-- 💌 Subscribe to our newsletter for exclusive content
-- 📧 Email me at hello@itgirl.style
+## 🤍 Why I Use Affiliate Links
 
-Thank you for being part of this journey. Here's to creating a life that's as beautiful on the inside as it is on the outside! ✨
+Some links on this site are affiliate links, which means I may earn a small commission (at no extra cost to you).  
+I only recommend products I genuinely like, use, or would buy. Your support helps keep this space ad-free, curated, and soft — and I’m so grateful for it.
 
-*With love,*  
-*Sarah* 
+---
+
+## 📮 Let’s Stay Connected
+
+- 💌 <a href="#" target="_blank" rel="noopener">Subscribe to my newsletter</a> for weekly glow tips  
+- 📸 <a href="https://instagram.com/itgirl_auraa" target="_blank" rel="noopener">Follow on Instagram</a>  
+- 📌 <a href="https://in.pinterest.com/itgirl_auraa/" target="_blank" rel="noopener">Explore my Pinterest</a>  
+- 📧 Email me at <a href="mailto:itgirlauraa@gmail.com">itgirlauraa@gmail.com</a>
+
+Thanks for being part of this journey.  
+Here’s to becoming *that girl*, together. ✨
+
+With love,  
+**Divya**
+

@@ -4,14 +4,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary brand colors
+        // Color palette from the collage
+        espresso: '#4B2F2F',  // Deep brown from hair/shoes
+        blush: '#C4A3B0',     // Feminine, warm rose-mauve
+        cream: '#FDFCF8',     // Elegant neutral background
+        vanilla: '#FFF9F2',   // Creamy warm white from highlights
+        beige: '#E6E0D4',     // Light tan from scrubs/pouches
+        bronze: '#9B6B4F',    // From Vaseline / skin tones
+        cherry: '#6C1F24',    // Deep red from nails/lips
+        
+        // Legacy colors (keeping for backward compatibility)
         primary: {
-          DEFAULT: '#C4A3B0', // Soft mauve/rose pink
+          DEFAULT: '#C4A3B0', // Same as blush
           dark: '#B08E9B',    // Darker shade for hover
           light: '#DBC3CC',   // Lighter shade for backgrounds
         },
-        // Background colors
-        background: '#FDFCF8', // Off-white
+        background: '#FDFCF8', // Same as cream
         'accent-green': '#E8F3E8', // Soft sage green
       },
       fontFamily: {
