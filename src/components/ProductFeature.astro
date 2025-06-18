@@ -9,29 +9,36 @@ interface Props {
 }
 
 const { title, description, features, image, isReversed = false, affiliateLink } = Astro.props;
+const productId = `product-${title.replace(/\s+/g, '-').toLowerCase()}`;
 ---
 
 <div class="bg-white rounded-lg shadow-sm p-6 my-8">
-  <div class="flex flex-col md:flex-row gap-6">
+  <div class={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6`}>
     <!-- Product Details -->
     <div class="w-full md:w-2/3">
-      <h3 class="font-display text-2xl text-espresso mb-4">
+      <h3 id={productId} class="font-display text-2xl text-espresso mb-4">
         {affiliateLink ? (
-          <a href={affiliateLink} target="_blank" rel="nofollow noopener" class="text-espresso hover:text-bronze transition-colors">
+          <a 
+            href={affiliateLink} 
+            target="_blank" 
+            rel="nofollow noopener" 
+            class="text-espresso hover:text-bronze transition-colors focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-2"
+            aria-describedby={`${productId}-desc`}
+          >
             {title}
           </a>
         ) : (
           title
         )}
       </h3>
-      <p class="text-bronze mb-6">{description}</p>
+      <p id={`${productId}-desc`} class="text-bronze mb-6">{description}</p>
       
       <div class="bg-beige/20 p-6 rounded-lg">
         <h4 class="font-medium text-espresso mb-3">Key Ingredients:</h4>
-        <ul class="space-y-2">
+        <ul class="space-y-2 list-none">
           {features.map(feature => (
             <li class="flex items-start">
-              <span class="text-espresso mr-2">•</span>
+              <span class="text-espresso mr-2" aria-hidden="true">•</span>
               <span class="text-bronze">{feature}</span>
             </li>
           ))}
@@ -44,11 +51,20 @@ const { title, description, features, image, isReversed = false, affiliateLink }
       <div class="w-full md:w-1/3 flex flex-col">
         <div class="aspect-[2/3] rounded-lg overflow-hidden bg-beige/20 shadow-md">
           {affiliateLink ? (
-            <a href={affiliateLink} target="_blank" rel="nofollow noopener" class="block w-full h-full">
+            <a 
+              href={affiliateLink} 
+              target="_blank" 
+              rel="nofollow noopener" 
+              class="block w-full h-full"
+              aria-labelledby={productId}
+            >
               <img 
                 src={image} 
                 alt={title}
                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                width="300"
+                height="450"
               />
             </a>
           ) : (
@@ -56,6 +72,9 @@ const { title, description, features, image, isReversed = false, affiliateLink }
               src={image} 
               alt={title}
               class="w-full h-full object-cover"
+              loading="lazy"
+              width="300"
+              height="450"
             />
           )}
         </div>
@@ -65,7 +84,8 @@ const { title, description, features, image, isReversed = false, affiliateLink }
             href={affiliateLink} 
             target="_blank" 
             rel="nofollow noopener" 
-            class="mt-4 bg-espresso text-white text-center py-2 px-4 rounded-md hover:bg-espresso/80 transition block w-full"
+            class="mt-4 bg-espresso text-white text-center py-2 px-4 rounded-md hover:bg-espresso/80 transition block w-full focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-2"
+            aria-labelledby={productId}
           >
             Shop on Amazon
           </a>
