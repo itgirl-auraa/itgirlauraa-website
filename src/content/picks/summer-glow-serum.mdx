@@ -24,12 +24,35 @@ products:
 ---
 
 import ProductFeature from '../../components/ProductFeature.astro';
+export const products = [
+  {
+    title: "Morning Brightening Serum",
+    description: "15% Vitamin C, Ferulic Acid, and Vitamin E create the perfect daytime formula to brighten and protect your skin from environmental damage. The lightweight texture absorbs quickly without any stickiness.",
+    features: ["15% Vitamin C", "Ferulic Acid", "Vitamin E", "Perfect for daytime use"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Evening Renewal Serum",
+    description: "This potent 20% Vitamin C formula is enhanced with Hyaluronic Acid and Niacinamide to repair and hydrate your skin overnight. Wake up to visibly plumper, more radiant skin.",
+    features: ["20% Vitamin C", "Hyaluronic Acid", "Niacinamide", "Use before bed"],
+    image: "/uploads/picks/SalicylicAcid-Cleanser.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Spot Treatment Booster",
+    description: "Target stubborn dark spots with this concentrated 30% Vitamin C formula. Alpha Arbutin and Kojic Acid work synergistically to fade hyperpigmentation and even out skin tone.",
+    features: ["30% Vitamin C", "Alpha Arbutin", "Kojic Acid", "Target dark spots"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  }
+];
 
 Transform your skincare routine with this curated collection of vitamin C serums, perfect for achieving that coveted summer glow. Each product has been carefully selected for its effectiveness and quality.
 
 ## What's Included
 
-{Astro.props.pick.data.products.map((product, index) => (
+{products.map((product, index) => (
   <ProductFeature 
     key={index}
     title={product.title}
@@ -37,7 +60,7 @@ Transform your skincare routine with this curated collection of vitamin C serums
     features={product.features}
     image={product.image}
     isReversed={index % 2 !== 0}
-    affiliateLink={product.amazon_link}
+    affiliateLink={product.affiliateLink}
   />
 ))}
 
