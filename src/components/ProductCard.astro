@@ -5,25 +5,28 @@ interface Props {
   price?: number;
   image: string;
   lazyLoad?: boolean;
+  url?: string;
 }
 
-const { name, description, price, image, lazyLoad = true } = Astro.props;
+const { name, description, price, image, lazyLoad = true, url = "#" } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow h-full">
-  <div class="aspect-[1/1] overflow-hidden">
-    <img 
-      src={image} 
-      alt={name}
-      class="w-full h-full object-cover"
-      loading={lazyLoad ? "lazy" : "eager"}
-      width="400"
-      height="400"
-    />
-  </div>
-  <div class="p-3">
-    <h3 class="font-display text-base text-espresso mb-1">{name}</h3>
-    <p class="text-xs text-bronze line-clamp-2">{description}</p>
-    {price && <p class="font-medium text-espresso text-sm mt-2">${price.toFixed(2)}</p>}
-  </div>
-</div> 
+<article class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow h-full">
+  <a href={url} class="block h-full flex flex-col no-underline" aria-labelledby={`product-${name.replace(/\s+/g, '-').toLowerCase()}`}>
+    <div class="aspect-[1/1] overflow-hidden">
+      <img 
+        src={image} 
+        alt={name}
+        class="w-full h-full object-cover"
+        loading={lazyLoad ? "lazy" : "eager"}
+        width="400"
+        height="400"
+      />
+    </div>
+    <div class="p-3 flex-grow">
+      <h3 id={`product-${name.replace(/\s+/g, '-').toLowerCase()}`} class="font-display text-base text-espresso mb-1">{name}</h3>
+      <p class="text-xs text-bronze line-clamp-2">{description}</p>
+      {price && <p class="font-medium text-espresso text-sm mt-2" aria-label={`Price: $${price.toFixed(2)}`}>${price.toFixed(2)}</p>}
+    </div>
+  </a>
+</article> 
