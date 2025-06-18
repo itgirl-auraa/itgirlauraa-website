@@ -1,0 +1,95 @@
+---
+title: "It Girl Night Reset Kit – Skincare Edition"
+description: "This skincare routine helps you unwind, detox, and wake up glowing. A must-have nighttime glow-up ritual curated just for you."
+date: 2025-06-16
+category: "Skincare"
+featured: true
+---
+
+import ProductFeature from '../../components/ProductFeature.astro';
+
+export const products = [
+  {
+    title: "Dot & Key Cica Calming Night Gel",
+    description: "A light, gel-based night moisturizer with Centella Asiatica (Cica), Niacinamide, and Green Tea. Perfect for reducing redness and breakouts while hydrating.",
+    features: ["Centella Asiatica", "Niacinamide", "Green Tea", "Reduces redness"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Minimalist 2% Salicylic Acid Face Cleanser",
+    description: "Gently clears pores and excess oil without drying your skin. A must-have for acne-prone or combination skin.",
+    features: ["2% Salicylic Acid", "Gentle cleansing", "Non-drying", "For acne-prone skin"],
+    image: "/uploads/picks/SalicylicAcid-Cleanser.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "The Moms Co. Natural Vitamin C Face Serum",
+    description: "Lightweight formula with Kakadu Plum and Hyaluronic Acid. Helps repair dull skin and improve texture.",
+    features: ["Vitamin C", "Kakadu Plum", "Hyaluronic Acid", "Brightening"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Plum Green Tea Renewed Clarity Night Gel",
+    description: "A cult-favorite for Indian skin – helps prevent breakouts while giving a dewy finish.",
+    features: ["Green Tea", "Glycolic Acid", "Dewy finish", "Prevents breakouts"],
+    image: "/uploads/picks/SalicylicAcid-Cleanser.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Earth Rhythm Lip Masque",
+    description: "Wake up with softer, nourished lips with this overnight balm infused with plant-based butters.",
+    features: ["Plant-based butters", "Overnight treatment", "Intense hydration", "Soft lips"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  }
+];
+
+Create a calming night-time routine that helps you *glow while you sleep*. This budget-friendly skincare collection is handpicked from Indian Amazon and infused with skin-loving ingredients that support your natural overnight repair process.
+
+## What's Included
+
+{products.map((product, index) => (
+  <ProductFeature 
+    key={index}
+    title={product.title}
+    description={product.description}
+    features={product.features}
+    image={product.image}
+    isReversed={index % 2 !== 0}
+    affiliateLink={product.affiliateLink}
+  />
+))}
+
+## Benefits
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {[
+    'Clears clogged pores and detoxifies skin overnight',
+    'Reduces redness and inflammation from daily stress',
+    'Enhances glow and even skin tone while you sleep',
+    'Intensely hydrates without feeling greasy',
+    'Affordable and easily available on Amazon India',
+    'Perfect for humid Indian climate'
+  ].map((benefit, index) => (
+    <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="flex items-start">
+        <span className="text-espresso mr-3 text-xl">✓</span>
+        <span className="text-bronze">{benefit}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+## How to Use
+
+1. **Cleanse** your face with the Salicylic Acid Cleanser.  
+2. Apply 2-3 drops of the **Vitamin C Serum** on slightly damp skin.  
+3. Seal it in with the **Cica Night Gel** or **Green Tea Gel** (alternate as per your skin's need).  
+4. Finish with a generous layer of **Lip Masque**.  
+5. Sleep. Let your skin reset.
+
+<div className="bg-espresso/10 p-6 rounded-lg mt-4 text-center">
+  <p className="text-espresso italic">Note: For best results, use consistently every night for at least 4 weeks. Store products in a cool, dry place away from direct sunlight.</p>
+</div>

@@ -1,0 +1,77 @@
+---
+title: "Summer Glow Vitamin C Serum Collection"
+description: "Discover the perfect combination of vitamin C serums for that enviable summer glow. These carefully selected products will brighten, protect, and transform your skin."
+date: 2024-03-20
+category: "Skincare"
+featured: true
+---
+
+import ProductFeature from '../../components/ProductFeature.astro';
+
+export const products = [
+  {
+    title: "Morning Brightening Serum",
+    description: "15% Vitamin C, Ferulic Acid, and Vitamin E create the perfect daytime formula to brighten and protect your skin from environmental damage. The lightweight texture absorbs quickly without any stickiness.",
+    features: ["15% Vitamin C", "Ferulic Acid", "Vitamin E", "Perfect for daytime use"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Evening Renewal Serum",
+    description: "This potent 20% Vitamin C formula is enhanced with Hyaluronic Acid and Niacinamide to repair and hydrate your skin overnight. Wake up to visibly plumper, more radiant skin.",
+    features: ["20% Vitamin C", "Hyaluronic Acid", "Niacinamide", "Use before bed"],
+    image: "/uploads/picks/SalicylicAcid-Cleanser.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  },
+  {
+    title: "Spot Treatment Booster",
+    description: "Target stubborn dark spots with this concentrated 30% Vitamin C formula. Alpha Arbutin and Kojic Acid work synergistically to fade hyperpigmentation and even out skin tone.",
+    features: ["30% Vitamin C", "Alpha Arbutin", "Kojic Acid", "Target dark spots"],
+    image: "/uploads/picks/cica-calming.jpg",
+    affiliateLink: "https://amzn.to/3G3TNBd"
+  }
+];
+
+Transform your skincare routine with this curated collection of vitamin C serums, perfect for achieving that coveted summer glow. Each product has been carefully selected for its effectiveness and quality.
+
+## What's Included
+
+{products.map((product, index) => (
+  <ProductFeature 
+    key={index}
+    title={product.title}
+    description={product.description}
+    features={product.features}
+    image={product.image}
+    isReversed={index % 2 !== 0}
+    affiliateLink={product.affiliateLink}
+  />
+))}
+
+## Benefits
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {[
+    'Brightens complexion and gives skin an instant radiance',
+    'Fades dark spots and hyperpigmentation over time',
+    'Boosts collagen production for firmer, more youthful skin',
+    'Protects against free radicals and environmental damage',
+    'Improves overall skin texture and tone',
+    'Creates a natural, healthy glow from within'
+  ].map((benefit, index) => (
+    <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="flex items-start">
+        <span className="text-espresso mr-3 text-xl">✓</span>
+        <span className="text-bronze">{benefit}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+## How to Use
+
+Apply 3-4 drops each morning and evening after cleansing. Layer under moisturizer and always follow with sunscreen during the day. For best results, use consistently for at least 4-6 weeks.
+
+<div className="bg-espresso/10 p-6 rounded-lg mt-4 text-center">
+  <p className="text-espresso italic">Note: This collection is perfect for all skin types, but those with sensitive skin should start slowly and patch test first. Store in a cool, dark place to preserve potency.</p>
+</div> 

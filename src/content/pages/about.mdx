@@ -1,0 +1,170 @@
+---
+title: "About IT Girl Auraa"
+description: "Meet Divya, the creator of It Girl Auraa — a curated lifestyle blog for beauty, wellness, and aesthetic living."
+image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=2000"
+---
+
+import SocialLink from '../../components/SocialLink.astro';
+import BeliefCard from '../../components/BeliefCard.astro';
+
+export const beliefs = [
+  {
+    title: "Authenticity",
+    description: "Being you, unapologetically",
+    icon: "✨"
+  },
+  {
+    title: "Intentional Living",
+    description: "Choosing beauty with purpose",
+    icon: "🌿"
+  },
+  {
+    title: "Quality Over Quantity",
+    description: "Investing in what actually works",
+    icon: "💎"
+  },
+  {
+    title: "Soft Power",
+    description: "Confidence, calm, and glow from within",
+    icon: "✨"
+  }
+];
+
+export const sections = [
+  {
+    title: "Curated Amazon Picks",
+    description: "Aesthetic and affordable finds I would genuinely buy myself — reviewed and recommended with care.",
+    icon: "🛒"
+  },
+  {
+    title: "Glow-Up Guides",
+    description: "From beauty to wellness, discover rituals that actually make you feel good — not just look good.",
+    icon: "✨"
+  },
+  {
+    title: "Lifestyle Inspiration",
+    description: "Mindful routines, soft girl rituals, and everyday habits that make life a little more you.",
+    icon: "🌿"
+  }
+];
+
+export const socialLinks = [
+  {
+    platform: "Newsletter",
+    url: "#",
+    label: "Subscribe to my newsletter for weekly glow tips",
+    icon: "💌"
+  },
+  {
+    platform: "Instagram",
+    url: "https://instagram.com/itgirl_auraa",
+    label: "Follow on Instagram",
+    icon: "📸"
+  },
+  {
+    platform: "Pinterest",
+    url: "https://in.pinterest.com/itgirl_auraa/",
+    label: "Explore my Pinterest",
+    icon: "📌"
+  },
+  {
+    platform: "Email",
+    url: "mailto:itgirlauraa@gmail.com",
+    label: "itgirlauraa@gmail.com",
+    icon: "📧"
+  }
+];
+
+<div className="max-w-4xl mx-auto">
+  <h1 className="font-display text-4xl md:text-5xl text-espresso mb-8 text-center">Welcome to It Girl Auraa ✨</h1>
+
+  <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+    <div className="w-full md:w-1/3">
+      <img 
+        src={frontmatter.image} 
+        alt="Divya - It Girl Auraa" 
+        className="rounded-lg shadow-md w-full aspect-[3/4] object-cover"
+      />
+    </div>
+    <div className="w-full md:w-2/3">
+      <p className="text-lg text-bronze mb-4">
+        Hi, I'm <strong className="text-espresso">Divya</strong>, creator of <strong className="text-espresso">IT Girl Auraa</strong> — and I'm so glad you're here.
+      </p>
+      <p className="text-bronze">
+        This space was born from a love of all things aesthetic, intentional, and empowering. Whether you're discovering your style, refining your routine, or building a soft life you love — you're in the right place.
+      </p>
+    </div>
+  </div>
+
+  <hr className="border-beige/30 my-12" />
+
+  <section className="mb-12">
+    <h2 className="font-display text-2xl text-espresso mb-6 text-center">💫 What I Believe</h2>
+    <p className="text-bronze text-center mb-8 italic">
+      <em>IT Girl Auraa</em> isn't just about products — it's about becoming the best version of yourself. The <em>It Girl</em> energy is all about:
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {beliefs.map((belief, index) => (
+        <BeliefCard 
+          key={index}
+          title={belief.title}
+          description={belief.description}
+          icon={belief.icon}
+        />
+      ))}
+    </div>
+  </section>
+
+  <hr className="border-beige/30 my-12" />
+
+  <section className="mb-12">
+    <h2 className="font-display text-2xl text-espresso mb-6 text-center">🛍️ What You'll Find Here</h2>
+    
+    <div className="space-y-6">
+      {sections.map((section, index) => (
+        <div key={index} className="bg-beige/10 p-6 rounded-lg">
+          <h3 className="font-display text-xl text-espresso mb-2">
+            {section.icon} {section.title}
+          </h3>
+          <p className="text-bronze">{section.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr className="border-beige/30 my-12" />
+
+  <section className="mb-12 bg-beige/10 p-6 rounded-lg">
+    <h2 className="font-display text-2xl text-espresso mb-4 text-center">🤍 Why I Use Affiliate Links</h2>
+    <p className="text-bronze text-center">
+      Some links on this site are affiliate links, which means I may earn a small commission (at no extra cost to you).<br />
+      I only recommend products I genuinely like, use, or would buy. Your support helps keep this space ad-free, curated, and soft — and I'm so grateful for it.
+    </p>
+  </section>
+
+  <hr className="border-beige/30 my-12" />
+
+  <section className="mb-12">
+    <h2 className="font-display text-2xl text-espresso mb-6 text-center">📮 Let's Stay Connected</h2>
+    
+    <div className="space-y-4">
+      {socialLinks.map((link, index) => (
+        <SocialLink
+          key={index}
+          platform={link.platform}
+          url={link.url}
+          label={link.label}
+          icon={link.icon}
+        />
+      ))}
+    </div>
+  </section>
+
+  <div className="text-center text-bronze mt-12">
+    <p>Thanks for being part of this journey.<br />
+    Here's to becoming <em>IT girl</em>, together. ✨</p>
+    <p className="mt-4">With love,<br />
+    <strong className="text-espresso font-display text-lg">Divya</strong></p>
+  </div>
+</div> 

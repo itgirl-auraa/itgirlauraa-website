@@ -3,23 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 
 const about = await getEntry('pages', 'about');
-const { Content } = await about.render();
+const { Content, components } = await about.render();
 ---
 
-<Layout title="About Me - It Girl Auraa">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-10">
-      <img 
-        src={about.data.image} 
-        alt="About Me" 
-        class="w-full h-64 md:h-96 object-cover rounded-lg border border-[#e6e0d4]"
-      />
-    </div>
-    <article class="prose prose-lg max-w-none
-                    prose-headings:text-espresso
-                    prose-p:text-[#4B2F2F]
-                    prose-a:text-bronze hover:prose-a:text-[#7c4d36]">
-      <Content />
-    </article>
+<Layout title="About Me - IT Girl Auraa">
+  <div class="mdx-content">
+    <Content components={components} />
   </div>
 </Layout>
+
+<style>
+  /* MDX specific styles */
+  .mdx-content :global(h1) {
+    @apply font-display text-4xl md:text-5xl text-espresso mb-8 text-center;
+  }
+  
+  .mdx-content :global(h2) {
+    @apply font-display text-2xl text-espresso mb-6 text-center;
+  }
+  
+  .mdx-content :global(h3) {
+    @apply font-display text-xl text-espresso mb-4;
+  }
+  
+  .mdx-content :global(p) {
+    @apply text-bronze mb-6;
+  }
+  
+  .mdx-content :global(hr) {
+    @apply border-beige/30 my-12;
+  }
+  
+  .mdx-content :global(.grid) {
+    @apply my-8;
+  }
+</style>

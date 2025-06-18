@@ -1,120 +1,124 @@
 ---
-title: "My 5-Step Morning Skincare Routine for Glowing Skin"
-description: "Discover a fast and affordable morning skincare routine using glow-boosting products from Amazon India. Ideal for busy girls who want that radiant look."
-date: 2024-03-20
+title: "My Morning Skincare Routine for Glowing Skin"
+description: "Discover the step-by-step morning skincare routine I follow for a radiant, healthy complexion. These simple yet effective steps will transform your skin."
+date: 2024-03-15
 image: "/uploads/morning-routine.jpg"
 category: "Skincare"
 readingTime: 5
 featured: true
 ---
 
-import ProductCardRow from '../../components/ProductCardRow.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import RoutineStep from '../../components/RoutineStep.astro';
 
-Mornings can be chaotic — but giving your skin just 10 minutes of love can make you look (and feel) radiant all day. This 5-step skincare routine is quick, beginner-friendly, and features affordable products you can grab from Amazon India.
+export const skincarePicks = [
+  {
+    name: "Gentle Foaming Cleanser",
+    description: "A pH-balanced cleanser that removes impurities without stripping the skin.",
+    price: 24.99,
+    image: "https://images.unsplash.com/photo-1556228578-8d89313c5489?q=80&w=2000"
+  },
+  {
+    name: "Vitamin C Serum",
+    description: "A potent 15% vitamin C formula that brightens and protects the skin.",
+    price: 42.99,
+    image: "https://images.unsplash.com/photo-1556228578-8d89313c5489?q=80&w=2000"
+  },
+  {
+    name: "Hyaluronic Acid Moisturizer",
+    description: "A lightweight moisturizer that provides 24-hour hydration.",
+    price: 38.50,
+    image: "https://images.unsplash.com/photo-1556228578-8d89313c5489?q=80&w=2000"
+  }
+];
 
-## 1. Gentle Cleanser
+export const routineSteps = [
+  {
+    number: 1,
+    title: "Cleanse",
+    description: "Start with a gentle cleanser to remove overnight impurities without stripping your skin's natural oils. Use lukewarm water and massage in circular motions for 60 seconds.",
+    tip: "Never use hot water as it can irritate and dry out your skin."
+  },
+  {
+    number: 2,
+    title: "Tone",
+    description: "Apply an alcohol-free toner to balance your skin's pH and prep it for the next steps. Pat gently with your fingertips rather than wiping.",
+    tip: "Keep your toner in the refrigerator for an extra refreshing application."
+  },
+  {
+    number: 3,
+    title: "Vitamin C Serum",
+    description: "Apply 3-4 drops of vitamin C serum to brighten skin and protect against environmental damage. Allow it to fully absorb before moving to the next step.",
+    tip: "Store your vitamin C serum away from direct sunlight to preserve its potency."
+  },
+  {
+    number: 4,
+    title: "Moisturize",
+    description: "Lock in hydration with a lightweight moisturizer suitable for your skin type. Don't forget your neck and décolletage area.",
+    tip: "Apply moisturizer while your skin is still slightly damp for better absorption."
+  },
+  {
+    number: 5,
+    title: "Sunscreen",
+    description: "Finish with a broad-spectrum SPF 30+ sunscreen, even on cloudy days. Reapply every 2 hours if you're outdoors.",
+    tip: "Use a quarter-sized amount for your face and neck to ensure adequate protection."
+  }
+];
 
-**Why:** Removes overnight oil and sweat without stripping your barrier.
+## Why a Morning Routine Matters
 
-**Look for:**
-- Ceramides  
-- Glycerin  
-- Hyaluronic acid  
+Your skin repairs itself overnight, which is why having a dedicated morning routine is essential to:
 
-💡 *Use lukewarm water, never hot.*
+1. **Remove overnight buildup** of sebum and dead skin cells
+2. **Protect your skin** from environmental stressors you'll face during the day
+3. **Create the perfect canvas** for makeup application (if you wear it)
+4. **Maintain hydration levels** throughout the day
 
----
+<div className="bg-beige/10 p-6 rounded-lg my-8 text-center italic">
+  <p>Remember: Consistency is key! Even the most expensive products won't work if you don't use them regularly.</p>
+</div>
 
-## 2. Vitamin C Serum
+## My Step-by-Step Morning Routine
 
-**Why:** Brightens skin, fades dark spots, and boosts protection when paired with SPF.
+<div className="space-y-6 my-8">
+  {routineSteps.map((step, index) => (
+    <RoutineStep
+      key={index}
+      number={step.number}
+      title={step.title}
+      description={step.description}
+      tip={step.tip}
+    />
+  ))}
+</div>
 
-**How to Use:** Apply 2–3 drops on damp skin after cleansing.
+## Products I'm Currently Loving
 
-💡 *Store it in a cool, dark place.*
+These are the products I reach for every morning. They work beautifully together and have made a noticeable difference in my skin's texture and glow.
 
----
+<div className="grid grid-cols-3 gap-4 my-8">
+  {skincarePicks.map((product, index) => (
+    <ProductCard
+      key={index}
+      name={product.name}
+      description={product.description}
+      image={product.image}
+    />
+  ))}
+</div>
 
-## 3. Hydrating Toner
+## The Importance of Layering Products Correctly
 
-**Why:** Adds moisture and soothes your skin before heavier products.
+The order in which you apply your skincare products matters significantly. Always go from thinnest to thickest consistency:
 
-**Ingredients to love:**
-- Rose water  
-- Centella asiatica  
-- Panthenol  
+1. Watery products (toners, essences)
+2. Serums
+3. Oils
+4. Creams and moisturizers
+5. Sunscreen
 
-💡 *Pat it in with your hands for better absorption.*
+This ensures that each product can penetrate properly and deliver its benefits effectively.
 
----
+## Final Thoughts
 
-## 4. Lightweight Moisturizer
-
-**Why:** Locks in hydration and strengthens the skin barrier.
-
-**Ideal for:**
-- Oily skin → go for gel formulas  
-- Dry skin → opt for cream moisturizers  
-
-💡 *Apply on damp skin to seal in hydration.*
-
----
-
-## 5. Sunscreen
-
-**Why:** Protects against UV damage, aging, and pigmentation.
-
-**Must-have:**
-- SPF 30 or higher  
-- Broad-spectrum  
-- Non-sticky finish  
-
-💡 *Use 2 fingers worth of sunscreen on face and neck.*
-
----
-
-## 🌸 My Morning Product Picks
-
-<ProductCardRow 
-  items={[
-    {
-      title: "CeraVe Foaming Cleanser",
-      href: "https://www.amazon.in/dp/B07RL88DDJ",
-      img: "/uploads/cerave-cleanser.jpg"
-    },
-    {
-      title: "Pilgrim Vitamin C Serum",
-      href: "https://www.amazon.in/dp/B08Y6QTXSY",
-      img: "/uploads/pilgrim-vitc.jpg"
-    },
-    {
-      title: "Minimalist PHA + Cica Toner",
-      href: "https://www.amazon.in/dp/B08KHL8N8N",
-      img: "/uploads/minimalist-toner.jpg"
-    },
-    {
-      title: "Neutrogena Hydro Boost Gel",
-      href: "https://www.amazon.in/dp/B071KF2V8S",
-      img: "/uploads/neutrogena-gel.jpg"
-    },
-    {
-      title: "The Derma Co Aqua Gel Sunscreen",
-      href: "https://www.amazon.in/dp/B0B5XYT5ZP",
-      img: "/uploads/dermaco-spf.jpg"
-    }
-  ]}
-/>
-
----
-
-## 💖 Final Tips
-
-- Apply each step gently — don't rub too hard  
-- Give products 30 seconds to absorb between layers  
-- Glow = skincare + hydration + good sleep
-
----
-💬 What's your go-to morning product?  
-Tag me on [Instagram](https://instagram.com/itgirl_auraa) or [Pinterest](https://pinterest.com/itgirl_auraa) and share your routine!
-
----
+Remember that skincare is personal, and what works for me might not work for you. Pay attention to how your skin responds and adjust accordingly. It's also worth noting that consistency trumps complexity—a simple routine you'll actually follow is better than an elaborate one you'll skip.

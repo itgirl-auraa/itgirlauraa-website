@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, components } = await post.render();
 
 const allPosts = await getCollection('posts');
 const relatedPosts = allPosts
@@ -56,7 +56,7 @@ const relatedPosts = allPosts
     )}
 
     <!-- Blog Content -->
-    <div class="prose prose-base sm:prose-lg leading-relaxed max-w-none
+    <div class="mdx-content prose prose-base sm:prose-lg leading-relaxed max-w-none
                 prose-headings:text-[#3a2d2d] prose-headings:mb-3
                 prose-p:text-[#4b2f2f] prose-p:mb-3
                 prose-a:text-[#9b6b4f]
@@ -67,10 +67,8 @@ const relatedPosts = allPosts
                 prose-blockquote:text-[#5c4b45]
                 prose-strong:text-[#3a2d2d]
                 [&>*]:my-2 [&>hr]:my-4">
-      <Content />
+      <Content components={components} />
     </div>
-
-    
 
     <!-- Author Bio -->
     <footer class="mt-12 border-t border-[#eae2d6] pt-6">
@@ -83,7 +81,7 @@ const relatedPosts = allPosts
         <div>
           <h3 class="font-display text-lg text-[#3a2d2d] mb-1">Written by Divya</h3>
           <p class="text-[#5c4b45] text-sm leading-snug">
-            Founder of <strong>It Girl Auraa</strong>, a digital destination for soft living, glow-up rituals, and curated lifestyle picks for the modern woman becoming her best self.
+            Founder of <strong>IT Girl Auraa</strong>, a digital destination for soft living, glow-up rituals, and curated lifestyle picks for the modern woman becoming her best self.
           </p>
         </div>
       </div>
@@ -91,3 +89,92 @@ const relatedPosts = allPosts
 
   </article>
 </Layout>
+
+<style>
+  /* MDX specific styles */
+  .mdx-content :global(.grid) {
+    display: grid;
+  }
+  
+  .mdx-content :global(.grid-cols-1) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .mdx-content :global(.md\\:grid-cols-2) {
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  .mdx-content :global(.lg\\:grid-cols-3) {
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  
+  .mdx-content :global(.gap-6) {
+    gap: 1.5rem;
+  }
+  
+  .mdx-content :global(.bg-white) {
+    background-color: #ffffff;
+  }
+  
+  .mdx-content :global(.p-6) {
+    padding: 1.5rem;
+  }
+  
+  .mdx-content :global(.rounded-lg) {
+    border-radius: 0.5rem;
+  }
+  
+  .mdx-content :global(.shadow-sm) {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .mdx-content :global(.flex) {
+    display: flex;
+  }
+  
+  .mdx-content :global(.items-start) {
+    align-items: flex-start;
+  }
+  
+  .mdx-content :global(.text-espresso) {
+    color: #3a2d2d;
+  }
+  
+  .mdx-content :global(.text-bronze) {
+    color: #5c4b45;
+  }
+  
+  .mdx-content :global(.mr-3) {
+    margin-right: 0.75rem;
+  }
+  
+  .mdx-content :global(.text-xl) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  .mdx-content :global(.bg-espresso\\/10) {
+    background-color: rgba(58, 45, 45, 0.1);
+  }
+  
+  .mdx-content :global(.mt-4) {
+    margin-top: 1rem;
+  }
+  
+  .mdx-content :global(.text-center) {
+    text-align: center;
+  }
+  
+  .mdx-content :global(.italic) {
+    font-style: italic;
+  }
+  
+  .mdx-content :global(.my-8) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>
