@@ -53,7 +53,7 @@ const latestPosts = posts
 			
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 				{latestPicks.map(pick => (
-					<div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+					<a href={`/picks/${pick.slug}`} class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
 						<div class="aspect-[3/4] overflow-hidden">
 							<img 
 								src={pick.data.image}
@@ -70,14 +70,13 @@ const latestPosts = posts
 							<p class="text-xs sm:text-sm text-white/90 mb-3 sm:mb-4 line-clamp-2">
 								{pick.data.description}
 							</p>
-							<a 
-								href={`/picks/${pick.slug}`}
+							<span 
 								class="inline-block text-xs sm:text-sm font-medium hover:underline"
 							>
 								View Collection →
-							</a>
+							</span>
 						</div>
-					</div>
+					</a>
 				))}
 			</div>
 		</div>
