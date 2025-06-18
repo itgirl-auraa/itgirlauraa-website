@@ -32,7 +32,7 @@ const relatedPicks = allPicks
         {pick.data.category}
       </div>
       
-      <h1 class="font-display text-3xl md:text-4xl text-espresso mb-6">{pick.data.title}</h1>
+      <h1 class="font-display text-4xl md:text-4xl text-[#3a2d2d] mb-6 mx-auto">{pick.data.title}</h1>
       
       <p class="text-lg text-bronze max-w-2xl mx-auto">{pick.data.description}</p>
       
@@ -41,6 +41,8 @@ const relatedPicks = allPicks
       </div>
     </header>
     
+    <hr class="mb-2 mt-4 border-t border-expresso/100 w-3/4 mx-auto" />
+
     <!-- MDX Content -->
     <div class="mdx-content prose prose-lg max-w-none prose-headings:text-espresso prose-p:text-bronze">
       <Content components={components} />
@@ -114,7 +116,7 @@ const relatedPicks = allPicks
   
   /* MDX specific styles */
   .mdx-content :global(h2) {
-    @apply mt-16 mb-6 text-2xl font-display text-espresso text-center;
+    @apply mt-8 mb-6 text-2xl font-display text-espresso text-center;
   }
   
   .mdx-content :global(h3) {

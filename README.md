@@ -1,4 +1,4 @@
-# It Girl Blog
+# IT Girl Blog
 
 A modern, responsive lifestyle blog built with Astro and Netlify CMS. Perfect for curating Amazon picks and sharing beauty/lifestyle content.
 

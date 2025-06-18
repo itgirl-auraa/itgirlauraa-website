@@ -24,7 +24,7 @@ const sortOptions = [
   <section class="py-16 bg-background">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-display text-4xl md:text-5xl text-espresso mb-4">
-        It Girl Picks
+        IT Girl Picks
       </h1>
       <p class="text-lg md:text-xl text-bronze font-light max-w-2xl mx-auto">
         Carefully curated collections of products to elevate your lifestyle and wellness journey.
@@ -80,94 +80,48 @@ const sortOptions = [
   <!-- Product Collection Grid -->
   <section class="py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {picks.map((pick, index) => (
-          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
-            <a href={`/picks/${pick.slug}`} class="block h-full flex flex-col">
-              <!-- Image -->
+          <article class="group rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden bg-white flex flex-col">
+            <a href={`/picks/${pick.slug}`} class="flex flex-col h-full" aria-labelledby={`pick-title-${pick.slug}`}>
+    
+              <!-- Image Top -->
               {pick.data.image ? (
-                <div class="aspect-[3/4] rounded-t-2xl overflow-hidden">
+                <div class="aspect-[2/3] overflow-hidden">
                   <img 
                     src={pick.data.image} 
                     alt={pick.data.title}
-                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading={index < 6 ? "eager" : "lazy"}
-                    width="400"
-                    height="600"
                   />
                 </div>
-              ) : (
-                <div class="aspect-[3/4] rounded-t-2xl bg-beige/30"></div>
-              )}
-
-              <!-- Content -->
-              <div class="p-6 flex-grow flex flex-col">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full text-xs font-medium bg-espresso/10 text-espresso">
-                    {pick.data.category}
-                  </span>
-                  {pick.data.rating && (
-                    <div class="flex items-center text-yellow-400 text-sm">
-                      ★★★★★
-                      <span class="text-bronze ml-1">(12 products)</span>
-                    </div>
-                  )}
-                </div>
-
-                <h2 class="font-display text-xl text-espresso mb-2">
-                  {pick.data.title}
-                </h2>
-
-                <p class="text-bronze text-sm mb-4 line-clamp-2">
-                  {pick.data.description}
-                </p>
-
-                <!-- Product Thumbnails -->
-                {pick.data.image && (
-                  <div class="flex items-center gap-2 mb-4">
-                    {[1, 2, 3].map(() => (
-                      <div class="w-12 h-12 rounded-lg overflow-hidden bg-beige/30">
-                        <img 
-                          src={pick.data.image} 
-                          alt="" 
-                          class="w-full h-full object-cover" 
-                          loading="lazy"
-                          width="48"
-                          height="48"
-                        />
-                      </div>
-                    ))}
-                    <div class="w-12 h-12 rounded-lg bg-beige/30 flex items-center justify-center text-sm font-medium text-bronze">
-                      +3
-                    </div>
-                  </div>
+                ) : (
+                  <div class="aspect-[2/3] bg-beige/30"></div>
                 )}
 
-                <!-- Review Quote -->
-                <blockquote class="text-sm italic text-bronze mb-4 font-serif">
-                  "These products have completely transformed my morning routine!"
-                </blockquote>
-
-                <div class="flex items-center justify-between mt-auto">
-                  {pick.data.price !== undefined ? (
-                    <span class="text-espresso font-medium">
-                      ${pick.data.price.toFixed(2)}
+                <!-- White Content Box Below -->
+                <div class="px-4 pt-3 pb-4 flex-grow flex flex-col">
+      
+                  <h2 id={`pick-title-${pick.slug}`} class="font-display text-lg text-expressob font-semibold">
+                    {pick.data.title}
+                  </h2>
+         
+                  <!-- Tag and Button Row -->
+                  <div class="flex justify-between items-center mt-auto pt-2">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-espresso/10 text-espresso whitespace-nowrap">
+                      {pick.data.category}
                     </span>
-                  ) : (
-                    <span></span>
-                  )}
-                  <span 
-                    class="inline-flex items-center px-4 py-2 rounded-full bg-espresso hover:bg-espresso/80 text-white text-sm font-medium transition-colors"
-                  >
-                    View Collection
-                    <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </span>
+
+                    <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-espresso hover:bg-espresso/80 text-white text-xs font-medium transition-colors">
+                      View
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </article>
+              </a>
+            </article>
         ))}
       </div>
 

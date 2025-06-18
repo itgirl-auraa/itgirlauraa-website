@@ -22,7 +22,7 @@ const productId = `product-${title.replace(/\s+/g, '-').toLowerCase()}`;
             href={affiliateLink} 
             target="_blank" 
             rel="nofollow noopener" 
-            class="text-espresso hover:text-bronze transition-colors focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-2"
+            class="no-underline text-espresso hover:text-bronze transition-colors focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-2"
             aria-describedby={`${productId}-desc`}
           >
             {title}
@@ -34,7 +34,7 @@ const productId = `product-${title.replace(/\s+/g, '-').toLowerCase()}`;
       <p id={`${productId}-desc`} class="text-bronze mb-6">{description}</p>
       
       <div class="bg-beige/20 p-6 rounded-lg">
-        <h4 class="font-medium text-espresso mb-3">Key Ingredients:</h4>
+        <h4 class="font-medium text-espresso mb-3">Key Features:</h4>
         <ul class="space-y-2 list-none">
           {features.map(feature => (
             <li class="flex items-start">
@@ -55,7 +55,7 @@ const productId = `product-${title.replace(/\s+/g, '-').toLowerCase()}`;
               href={affiliateLink} 
               target="_blank" 
               rel="nofollow noopener" 
-              class="block w-full h-full"
+              class="block w-full h-full no-underline"
               aria-labelledby={productId}
             >
               <img 
@@ -84,7 +84,7 @@ const productId = `product-${title.replace(/\s+/g, '-').toLowerCase()}`;
             href={affiliateLink} 
             target="_blank" 
             rel="nofollow noopener" 
-            class="mt-4 bg-espresso text-white text-center py-2 px-4 rounded-md hover:bg-espresso/80 transition block w-full focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-2"
+            class="mt-4 bg-espresso text-white text-center py-2 px-4 rounded-md hover:bg-espresso/80 transition block w-full no-underline focus:outline-none focus:ring-2 focus:ring-espresso focus:ring-offset-2"
             aria-labelledby={productId}
           >
             Shop on Amazon
