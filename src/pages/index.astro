@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import ProductCard from '../components/ProductCard.astro';
 
 // Get latest picks and posts
 const picks = await getCollection('picks');
@@ -14,7 +15,11 @@ const latestPosts = posts
 	.slice(0, 3);
 ---
 
-<Layout title="It Girl Auraa - Curated Lifestyle & Beauty">
+<Layout 
+	title="It Girl Auraa - Curated Lifestyle & Beauty" 
+	description="Discover beauty secrets, lifestyle tips, and carefully selected products for your journey to becoming that girl."
+	ogImage="/hero-collage.jpg"
+>
 	<!-- Hero Section -->
 	<section class="relative min-h-[80vh] flex items-center justify-center bg-cream overflow-hidden">
 		<div class="absolute inset-0 z-0">
@@ -23,6 +28,9 @@ const latestPosts = posts
 				src="/hero-collage.jpg" 
 				alt="Lifestyle Collage"
 				class="w-full h-full object-cover opacity-35"
+				loading="eager"
+				width="1920"
+				height="1080"
 			/>
 		</div>
 		<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,6 +67,9 @@ const latestPosts = posts
 								src={pick.data.image}
 								alt={pick.data.title}
 								class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+								loading="lazy"
+								width="400"
+								height="600"
 							/>
 						</div>
 						<div class="absolute inset-0 bg-gradient-to-t from-espresso/70 to-transparent opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -101,6 +112,9 @@ const latestPosts = posts
 									src={post.data.image}
 									alt={post.data.title}
 									class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+									loading="lazy"
+									width="800"
+									height="600"
 								/>
 							</div>
 						</div>

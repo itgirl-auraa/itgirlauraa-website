@@ -4,9 +4,10 @@ interface Props {
   description: string;
   price?: number;
   image: string;
+  lazyLoad?: boolean;
 }
 
-const { name, description, price, image } = Astro.props;
+const { name, description, price, image, lazyLoad = true } = Astro.props;
 ---
 
 <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow h-full">
@@ -15,6 +16,9 @@ const { name, description, price, image } = Astro.props;
       src={image} 
       alt={name}
       class="w-full h-full object-cover"
+      loading={lazyLoad ? "lazy" : "eager"}
+      width="400"
+      height="400"
     />
   </div>
   <div class="p-3">
