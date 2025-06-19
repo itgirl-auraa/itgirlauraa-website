@@ -7,34 +7,52 @@ const { Content, components } = await about.render();
 ---
 
 <Layout title="About Me - IT Girl Auraa">
-  <div class="mdx-content">
-    <Content components={components} />
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
+    <div class="mdx-content">
+      <Content components={components} />
+    </div>
   </div>
 </Layout>
 
 <style>
   /* MDX specific styles */
   .mdx-content :global(h1) {
-    @apply font-display text-4xl md:text-5xl text-espresso mb-8 text-center;
+    @apply font-display text-3xl sm:text-4xl md:text-5xl text-espresso mb-6 sm:mb-8 text-center;
   }
   
   .mdx-content :global(h2) {
-    @apply font-display text-2xl text-espresso mb-6 text-center;
+    @apply font-display text-xl sm:text-2xl text-espresso mb-4 sm:mb-6 text-center;
   }
   
   .mdx-content :global(h3) {
-    @apply font-display text-xl text-espresso mb-4;
+    @apply font-display text-lg sm:text-xl text-espresso mb-3 sm:mb-4;
   }
   
   .mdx-content :global(p) {
-    @apply text-bronze mb-6;
+    @apply text-sm sm:text-base text-bronze mb-4 sm:mb-6;
   }
   
   .mdx-content :global(hr) {
-    @apply border-beige/30 my-12;
+    @apply border-beige/30 my-8 sm:my-12;
   }
   
   .mdx-content :global(.grid) {
-    @apply my-8;
+    @apply my-6 sm:my-8;
+  }
+
+  .mdx-content :global(img) {
+    @apply rounded-lg mx-auto my-4 sm:my-6 max-w-full h-auto;
+  }
+  
+  .mdx-content :global(a) {
+    @apply text-espresso underline hover:text-espresso/80 transition-colors;
+  }
+
+  .mdx-content :global(ul), .mdx-content :global(ol) {
+    @apply mb-4 sm:mb-6 pl-5 sm:pl-6;
+  }
+
+  .mdx-content :global(li) {
+    @apply mb-1 sm:mb-2 text-sm sm:text-base text-bronze;
   }
 </style>

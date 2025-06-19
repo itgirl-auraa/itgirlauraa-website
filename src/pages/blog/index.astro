@@ -13,12 +13,12 @@ const regularPosts = posts.filter(post => !post.data.featured);
 
 <Layout title="Glow Journal - Beauty & Lifestyle Blog">
   <!-- Hero Section -->
-  <section class="py-16 bg-background">
+  <section class="py-10 sm:py-12 md:py-16 bg-background">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-display text-4xl md:text-5xl text-espresso mb-4">
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl text-espresso mb-3 sm:mb-4">
         Glow Journal
       </h1>
-      <p class="text-lg md:text-xl text-bronze font-light max-w-2xl mx-auto">
+      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-bronze font-light max-w-2xl mx-auto">
         A collection of thoughtful articles on beauty, wellness, and mindful living to inspire your journey to becoming your most radiant self.
       </p>
     </div>
@@ -26,7 +26,7 @@ const regularPosts = posts.filter(post => !post.data.featured);
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Search & Filter Section -->
-    <section class="mb-12">
+    <section class="mb-8 sm:mb-12">
       <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
         <!-- Search -->
         <div class="relative w-full md:w-auto md:min-w-[300px]">
@@ -41,12 +41,12 @@ const regularPosts = posts.filter(post => !post.data.featured);
         </div>
 
         <!-- Categories -->
-        <div class="flex flex-wrap justify-center gap-2">
-          <button class="px-4 py-1.5 rounded-full bg-espresso text-white text-sm font-medium">
+        <div class="flex flex-wrap justify-center gap-2 w-full md:w-auto">
+          <button class="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-espresso text-white text-xs sm:text-sm font-medium">
             All
           </button>
           {['Skincare', 'Wellness', 'Beauty', 'Lifestyle', 'Self-Care', 'Nutrition'].map(category => (
-            <button class="px-4 py-1.5 rounded-full bg-beige hover:bg-beige/70 text-espresso text-sm font-medium transition-colors">
+            <button class="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-beige hover:bg-beige/70 text-espresso text-xs sm:text-sm font-medium transition-colors">
               {category}
             </button>
           ))}
@@ -55,13 +55,13 @@ const regularPosts = posts.filter(post => !post.data.featured);
         <!-- Sort -->
         <div class="relative w-full md:w-auto">
           <select 
-            class="w-full md:w-auto appearance-none pl-4 pr-10 py-2 rounded-full border border-beige focus:outline-none focus:ring-2 focus:ring-espresso focus:border-transparent bg-white"
+            class="w-full md:w-auto appearance-none pl-3 sm:pl-4 pr-8 sm:pr-10 py-1.5 sm:py-2 rounded-full border border-beige focus:outline-none focus:ring-2 focus:ring-espresso focus:border-transparent bg-white text-sm"
           >
             <option value="newest">Sort: Latest</option>
             <option value="oldest">Sort: Oldest</option>
             <option value="popular">Sort: Most Popular</option>
           </select>
-          <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-bronze pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-bronze pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -70,32 +70,33 @@ const regularPosts = posts.filter(post => !post.data.featured);
 
     <!-- Featured Posts -->
     {featuredPosts.length > 0 && (
-      <section class="mb-16">
-        <h2 class="font-display text-2xl text-espresso mb-8">Featured Articles</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section class="mb-10 sm:mb-16">
+        <h2 class="font-display text-xl sm:text-2xl text-espresso mb-5 sm:mb-8">Featured Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {featuredPosts.map((post) => (
             <article class="relative group">
               <a href={`/blog/${post.slug}`} class="block">
-                <div class="aspect-[16/9] rounded-lg overflow-hidden bg-beige/30 mb-4">
+                <div class="aspect-[16/9] rounded-lg overflow-hidden bg-beige/30 mb-3 sm:mb-4">
                   {post.data.image ? (
                     <img 
                       src={post.data.image} 
                       alt={post.data.title}
                       class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                      loading="lazy"
                     />
                   ) : (
                     <div class="w-full h-full bg-beige/50"></div>
                   )}
                 </div>
-                <div class="flex items-center gap-4 text-sm text-bronze mb-2">
+                <div class="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-bronze mb-1 sm:mb-2">
                   <span>{new Date(post.data.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                   <span>•</span>
                   <span>{post.data.category}</span>
                 </div>
-                <h2 class="font-display text-2xl mb-2 group-hover:text-espresso/70 transition">
+                <h2 class="font-display text-lg sm:text-xl md:text-2xl mb-1 sm:mb-2 group-hover:text-espresso/70 transition">
                   {post.data.title}
                 </h2>
-                <p class="text-bronze">{post.data.description}</p>
+                <p class="text-xs sm:text-sm text-bronze line-clamp-2">{post.data.description}</p>
               </a>
             </article>
           ))}
@@ -104,32 +105,33 @@ const regularPosts = posts.filter(post => !post.data.featured);
     )}
 
     <!-- Latest Articles -->
-    <section>
-      <h2 class="font-display text-2xl text-espresso mb-8">Latest Articles</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section class="pb-10 sm:pb-16">
+      <h2 class="font-display text-xl sm:text-2xl text-espresso mb-5 sm:mb-8">Latest Articles</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {regularPosts.map((post) => (
           <article class="group">
             <a href={`/blog/${post.slug}`} class="block">
-              <div class="aspect-video rounded-lg overflow-hidden bg-beige/30 mb-4">
+              <div class="aspect-video rounded-lg overflow-hidden bg-beige/30 mb-3 sm:mb-4">
                 {post.data.image ? (
                   <img 
                     src={post.data.image} 
                     alt={post.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                    loading="lazy"
                   />
                 ) : (
                   <div class="w-full h-full bg-beige/50"></div>
                 )}
               </div>
-              <div class="flex items-center gap-4 text-sm text-bronze mb-2">
+              <div class="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-bronze mb-1 sm:mb-2">
                 <span>{new Date(post.data.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                 <span>•</span>
                 <span>{post.data.category}</span>
               </div>
-              <h2 class="font-display text-xl mb-2 group-hover:text-espresso/70 transition">
+              <h2 class="font-display text-base sm:text-lg md:text-xl mb-1 sm:mb-2 group-hover:text-espresso/70 transition">
                 {post.data.title}
               </h2>
-              <p class="text-bronze line-clamp-2">{post.data.description}</p>
+              <p class="text-xs sm:text-sm text-bronze line-clamp-2">{post.data.description}</p>
             </a>
           </article>
         ))}

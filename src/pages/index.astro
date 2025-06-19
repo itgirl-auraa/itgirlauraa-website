@@ -21,7 +21,7 @@ const latestPosts = posts
 	ogImage="/hero-collage.jpg"
 >
 	<!-- Hero Section -->
-	<section class="relative min-h-[80vh] flex items-center justify-center bg-cream overflow-hidden">
+	<section class="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center bg-cream overflow-hidden">
 		<div class="absolute inset-0 z-0">
 			<div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream/90"></div>
 			<img 
@@ -33,16 +33,16 @@ const latestPosts = posts
 				height="1080"
 			/>
 		</div>
-		<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-espresso mb-4 sm:mb-6">
+		<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+			<h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-espresso mb-3 sm:mb-4 md:mb-6">
 				Curated essentials for the girl she's becoming ✨
 			</h1>
-			<p class="text-base sm:text-lg md:text-xl text-bronze mb-6 sm:mb-8 font-light max-w-xl mx-auto">
+			<p class="text-sm sm:text-base md:text-xl text-bronze mb-5 sm:mb-6 md:mb-8 font-light max-w-xl mx-auto">
 				Discover beauty secrets, lifestyle tips, and carefully selected products for your journey to becoming that girl.
 			</p>
 			<a 
 				href="/picks" 
-				class="inline-block w-full sm:w-auto bg-espresso hover:bg-espresso/80 text-white font-medium px-6 sm:px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-center"
+				class="inline-block w-full sm:w-auto bg-espresso hover:bg-espresso/80 text-white font-medium px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-center text-sm sm:text-base"
 			>
 				Explore My Picks
 			</a>
@@ -50,16 +50,16 @@ const latestPosts = posts
 	</section>
 
 	<!-- IT Girl Picks Section -->
-	<section class="py-12 sm:py-16 md:py-20 bg-vanilla">
+	<section class="py-10 sm:py-12 md:py-16 bg-vanilla">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center font-display text-2xl sm:text-3xl md:text-4xl text-espresso mb-3 sm:mb-4">
+			<h2 class="text-center font-display text-2xl sm:text-3xl md:text-4xl text-espresso mb-2 sm:mb-3">
 				IT Girl Picks
 			</h2>
-			<p class="text-center text-bronze mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
+			<p class="text-center text-bronze mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto text-xs sm:text-sm md:text-base">
 				Curated collections of my favorite products, from skincare essentials to room decor that sparks joy.
 			</p>
 			
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 				{latestPicks.map(pick => (
 					<a href={`/picks/${pick.slug}`} class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
 						<div class="aspect-[3/4] overflow-hidden">
@@ -72,13 +72,13 @@ const latestPosts = posts
 								height="600"
 							/>
 						</div>
-						<div class="absolute inset-0 bg-gradient-to-t from-bronze/70 to-transparent opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-						<div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform translate-y-0 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-							<span class="text-xs sm:text-sm font-medium text-espresso bg-vanilla/90 px-2 sm:px-3 py-1 rounded-full">
+						<div class="absolute inset-0 bg-gradient-to-t from-bronze/70 to-transparent opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						<div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 text-white transform translate-y-0 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+							<span class="text-xs sm:text-sm font-medium text-espresso bg-vanilla/90 px-2 py-1 rounded-full">
 								{pick.data.category}
 							</span>
-							<h3 class="font-display text-lg sm:text-xl mt-2 sm:mt-3 mb-1 sm:mb-2">{pick.data.title}</h3>
-							<p class="text-xs sm:text-sm text-white/90 mb-3 sm:mb-4 line-clamp-2">
+							<h3 class="font-display text-base sm:text-lg md:text-xl mt-2 mb-1">{pick.data.title}</h3>
+							<p class="text-xs sm:text-sm text-white/90 mb-2 sm:mb-3 line-clamp-2">
 								{pick.data.description}
 							</p>
 							<span 
@@ -94,20 +94,20 @@ const latestPosts = posts
 	</section>
 
 	<!-- Glow Journal Section -->
-	<section class="py-12 sm:py-16 md:py-20 bg-cream">
+	<section class="py-10 sm:py-12 md:py-16 bg-cream">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center font-display text-2xl sm:text-3xl md:text-4xl text-espresso mb-3 sm:mb-4">
+			<h2 class="text-center font-display text-2xl sm:text-3xl md:text-4xl text-espresso mb-2 sm:mb-3">
 				Glow Journal
 			</h2>
-			<p class="text-center text-bronze mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
+			<p class="text-center text-bronze mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto text-xs sm:text-sm md:text-base">
 				Beauty tips, skincare routines, and wellness inspiration for your journey to radiant living.
 			</p>
 
-			<div class="space-y-8 sm:space-y-12 md:space-y-16">
+			<div class="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
 				{latestPosts.map((post, index) => (
-					<div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 sm:gap-8 items-center`}>
-						<div class="w-full md:w-1/2">
-							<div class="aspect-[4/3] overflow-hidden rounded-lg shadow-md">
+					<div class={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-5 sm:gap-6 md:gap-8 items-center`}>
+						<div class="w-full lg:w-1/2">
+							<div class="aspect-[16/12] sm:aspect-[4/3] overflow-hidden rounded-lg shadow-md">
 								<img 
 									src={post.data.image}
 									alt={post.data.title}
@@ -118,12 +118,12 @@ const latestPosts = posts
 								/>
 							</div>
 						</div>
-						<div class="w-full md:w-1/2 md:px-6">
-							<div class="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+						<div class="w-full lg:w-1/2 lg:px-6 mt-4 lg:mt-0">
+							<div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
 								<span class="text-xs sm:text-sm font-medium text-espresso">
 									{post.data.category}
 								</span>
-								<span class="text-xs sm:text-sm text-bronze/80">
+								<span class="text-xs text-bronze/80">
 									{new Date(post.data.date).toLocaleDateString('en-US', {
 										month: 'long',
 										day: 'numeric',
@@ -131,10 +131,10 @@ const latestPosts = posts
 									})}
 								</span>
 							</div>
-							<h3 class="font-display text-xl sm:text-2xl md:text-3xl text-espresso mb-3 sm:mb-4">
+							<h3 class="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-espresso mb-2 sm:mb-3">
 								{post.data.title}
 							</h3>
-							<p class="text-sm sm:text-base text-bronze mb-4 sm:mb-6 line-clamp-3">
+							<p class="text-xs sm:text-sm md:text-base text-bronze mb-3 sm:mb-4 md:mb-5 line-clamp-3">
 								{post.data.description}
 							</p>
 							<a 

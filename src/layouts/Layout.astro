@@ -58,11 +58,11 @@ const ogImageURL = new URL(ogImage, Astro.site);
     </main>
 
     <!-- Newsletter Section -->
-    <section class="bg-beige py-16" aria-labelledby="newsletter-heading">
+    <section class="bg-beige py-12 sm:py-16" aria-labelledby="newsletter-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h2 id="newsletter-heading" class="font-display text-3xl text-espresso mb-4">Join the It Girl Community</h2>
-          <p class="text-bronze mb-8 max-w-lg mx-auto">
+          <h2 id="newsletter-heading" class="font-display text-2xl sm:text-3xl text-espresso mb-3 sm:mb-4">Join the It Girl Community</h2>
+          <p class="text-bronze text-sm sm:text-base mb-6 sm:mb-8 max-w-lg mx-auto">
             Get exclusive beauty tips, product recommendations, and lifestyle inspiration delivered straight to your inbox.
           </p>
           <form class="max-w-md mx-auto" aria-labelledby="newsletter-heading">
@@ -77,7 +77,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
               />
               <button
                 type="submit"
-                class="w-full sm:w-auto px-6 py-2 bg-espresso text-white rounded-md hover:bg-espresso/80 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-espresso"
+                class="w-full sm:w-auto px-6 py-2 bg-espresso text-white font-medium text-sm sm:text-base rounded-md hover:bg-espresso/80 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-espresso"
               >
                 Subscribe
               </button>
@@ -158,6 +158,19 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
       ::-webkit-scrollbar-thumb:hover {
         background: theme('colors.espresso/80');
+      }
+
+      /* Add responsive typography scaling */
+      body {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          font-size: 14px;
+          line-height: 1.5;
+        }
       }
     </style>
   </body>

@@ -21,11 +21,11 @@ const relatedPosts = allPosts
 
 <Layout title={`${post.data.title} – Glow Journal`} description={post.data.description}>
 
-  <article class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-0 py-12">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
 
     <!-- Post Header -->
-    <header class="mb-8 text-center">
-      <p class="text-sm text-[#8b6f63] mb-1 tracking-wide uppercase">
+    <header class="mb-6 sm:mb-8 text-center">
+      <p class="text-xs sm:text-sm text-[#8b6f63] mb-1 tracking-wide uppercase">
         {new Date(post.data.date).toLocaleDateString('en-US', {
           month: 'long',
           day: 'numeric',
@@ -33,12 +33,12 @@ const relatedPosts = allPosts
         })} • {post.data.category}
       </p>
 
-      <h1 class="font-display text-4xl sm:text-5xl text-[#3a2d2d] leading-tight tracking-tight max-w-3xl mx-auto mb-3">
+      <h1 class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#3a2d2d] leading-tight tracking-tight max-w-3xl mx-auto mb-2 sm:mb-3">
         {post.data.title}
       </h1>
 
       {post.data.description && (
-        <p class="text-lg text-[#5c4b45] max-w-2xl mx-auto">
+        <p class="text-sm sm:text-base md:text-lg text-[#5c4b45] max-w-2xl mx-auto">
           {post.data.description}
         </p>
       )}
@@ -46,21 +46,21 @@ const relatedPosts = allPosts
 
     <!-- Featured Image -->
     {post.data.image && (
-      <div class="mb-10">
+      <div class="mb-6 sm:mb-8 md:mb-10">
         <img 
           src={post.data.image} 
           alt={post.data.title} 
-          class="w-full max-h-[420px] object-cover rounded-xl border border-[#eae2d6]" 
+          class="w-full max-h-[420px] object-cover rounded-lg sm:rounded-xl border border-[#eae2d6]" 
         />
       </div>
     )}
 
     <!-- Blog Content -->
-    <div class="mdx-content prose prose-base sm:prose-lg leading-relaxed max-w-none
-                prose-headings:text-[#3a2d2d] prose-headings:mb-3
-                prose-p:text-[#4b2f2f] prose-p:mb-3
+    <div class="mdx-content prose prose-sm sm:prose-base md:prose-lg leading-relaxed max-w-none
+                prose-headings:text-[#3a2d2d] prose-headings:mb-2 sm:prose-headings:mb-3
+                prose-p:text-[#4b2f2f] prose-p:mb-2 sm:prose-p:mb-3
                 prose-a:text-[#9b6b4f]
-                prose-img:rounded-xl
+                prose-img:rounded-lg sm:prose-img:rounded-xl
                 prose-blockquote:border-l-4
                 prose-blockquote:border-[#9b6b4f]
                 prose-blockquote:pl-4
@@ -71,16 +71,16 @@ const relatedPosts = allPosts
     </div>
 
     <!-- Author Bio -->
-    <footer class="mt-12 border-t border-[#eae2d6] pt-6">
-      <div class="flex items-center gap-4">
+    <footer class="mt-8 sm:mt-10 md:mt-12 border-t border-[#eae2d6] pt-4 sm:pt-6">
+      <div class="flex items-center gap-3 sm:gap-4">
         <img 
           src="/divya.jpg" 
           alt="Divya" 
-          class="w-14 h-14 rounded-full object-cover" 
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover" 
         />
         <div>
-          <h3 class="font-display text-lg text-[#3a2d2d] mb-1">Written by Divya</h3>
-          <p class="text-[#5c4b45] text-sm leading-snug">
+          <h3 class="font-display text-base sm:text-lg text-[#3a2d2d] mb-0.5 sm:mb-1">Written by Divya</h3>
+          <p class="text-[#5c4b45] text-xs sm:text-sm leading-snug">
             Founder of <strong>IT Girl Auraa</strong>, a digital destination for soft living, glow-up rituals, and curated lifestyle picks for the modern woman becoming her best self.
           </p>
         </div>
@@ -115,6 +115,14 @@ const relatedPosts = allPosts
   .mdx-content :global(.gap-6) {
     gap: 1.5rem;
   }
+
+  .mdx-content :global(.gap-3) {
+    gap: 0.75rem;
+  }
+
+  .mdx-content :global(.gap-4) {
+    gap: 1rem;
+  }
   
   .mdx-content :global(.bg-white) {
     background-color: #ffffff;
@@ -122,6 +130,14 @@ const relatedPosts = allPosts
   
   .mdx-content :global(.p-6) {
     padding: 1.5rem;
+  }
+
+  .mdx-content :global(.p-4) {
+    padding: 1rem;
+  }
+
+  .mdx-content :global(.p-3) {
+    padding: 0.75rem;
   }
   
   .mdx-content :global(.rounded-lg) {
@@ -147,18 +163,46 @@ const relatedPosts = allPosts
   .mdx-content :global(.text-bronze) {
     color: #5c4b45;
   }
+
+  .mdx-content :global(.mr-2) {
+    margin-right: 0.5rem;
+  }
   
-  .mdx-content :global(.mr-3) {
-    margin-right: 0.75rem;
+  .mdx-content :global(.text-base) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .mdx-content :global(.text-lg) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
   
   .mdx-content :global(.text-xl) {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
+  .mdx-content :global(.text-sm) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .mdx-content :global(.text-xs) {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
   
   .mdx-content :global(.bg-espresso\\/10) {
     background-color: rgba(58, 45, 45, 0.1);
+  }
+  
+  .mdx-content :global(.mt-2) {
+    margin-top: 0.5rem;
+  }
+
+  .mdx-content :global(.mt-3) {
+    margin-top: 0.75rem;
   }
   
   .mdx-content :global(.mt-4) {
@@ -173,8 +217,35 @@ const relatedPosts = allPosts
     font-style: italic;
   }
   
+  .mdx-content :global(.my-4) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .mdx-content :global(.my-6) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .mdx-content :global(.my-8) {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 640px) {
+    .mdx-content :global(h1) {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    
+    .mdx-content :global(h2) {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+    
+    .mdx-content :global(h3) {
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+    }
   }
 </style>

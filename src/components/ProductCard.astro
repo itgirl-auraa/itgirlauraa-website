@@ -17,16 +17,16 @@ const { name, description, price, image, lazyLoad = true, url = "#" } = Astro.pr
       <img 
         src={image} 
         alt={name}
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         loading={lazyLoad ? "lazy" : "eager"}
         width="400"
         height="400"
       />
     </div>
-    <div class="p-3 flex-grow">
-      <h3 id={`product-${name.replace(/\s+/g, '-').toLowerCase()}`} class="font-display text-base text-espresso mb-1">{name}</h3>
+    <div class="p-3 sm:p-4 flex-grow">
+      <h3 id={`product-${name.replace(/\s+/g, '-').toLowerCase()}`} class="font-display text-sm sm:text-base text-espresso mb-1 line-clamp-1">{name}</h3>
       <p class="text-xs text-bronze line-clamp-2">{description}</p>
-      {price && <p class="font-medium text-espresso text-sm mt-2" aria-label={`Price: $${price.toFixed(2)}`}>${price.toFixed(2)}</p>}
+      {price && <p class="font-medium text-espresso text-xs sm:text-sm mt-1 sm:mt-2" aria-label={`Price: $${price.toFixed(2)}`}>${price.toFixed(2)}</p>}
     </div>
   </a>
 </article> 
