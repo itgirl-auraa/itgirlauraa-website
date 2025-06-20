@@ -25,9 +25,9 @@ const relatedPicks = allPicks
   description={pick.data.description}
   ogImage={pick.data.image}
 >
-  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
+  <article class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-6 sm:py-8 md:py-10">
     <!-- Header -->
-    <header class="mb-8 sm:mb-12 md:mb-16 text-center">
+    <header class="mb-6 sm:mb-8 md:mb-10 text-center">
       <div class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-espresso/10 text-espresso mb-3 sm:mb-4">
         {pick.data.category}
       </div>
@@ -44,13 +44,13 @@ const relatedPicks = allPicks
     <hr class="mb-2 mt-4 border-t border-expresso/100 w-3/4 mx-auto" />
 
     <!-- MDX Content -->
-    <div class="mdx-content prose prose-sm sm:prose prose-lg:prose-lg max-w-none prose-headings:text-espresso prose-p:text-bronze">
+    <div class="mdx-content prose prose-sm sm:prose prose-lg:prose-lg max-w-6xl lg:max-w-7xl prose-headings:text-espresso prose-p:text-bronze px-4 sm:px-6 md:px-8 lg:px-10 mx-auto">
       <Content components={components} />
     </div>
 
     <!-- Related Products -->
     {relatedPicks.length > 0 && (
-      <section aria-labelledby="related-picks-heading" class="mt-12 sm:mt-16 md:mt-20">
+      <section aria-labelledby="related-picks-heading" class="mt-8 sm:mt-10 md:mt-12">
         <h2 id="related-picks-heading" class="font-display text-xl sm:text-2xl text-espresso mb-6 sm:mb-8 text-center">You Might Also Like</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {relatedPicks.map((relatedPick) => (
@@ -90,11 +90,11 @@ const relatedPicks = allPicks
 <style>
   /* Style for alternating sections */
   .prose h2 {
-    @apply mt-10 sm:mt-12 md:mt-16 mb-3 sm:mb-4 md:mb-6 text-xl sm:text-2xl font-display text-espresso;
+    @apply mt-6 sm:mt-8 md:mt-10 mb-3 sm:mb-4 text-xl sm:text-2xl font-display text-espresso;
   }
   
   .prose h3 {
-    @apply mt-6 sm:mt-8 mb-2 sm:mb-4 text-lg sm:text-xl font-display text-espresso;
+    @apply mt-4 sm:mt-6 mb-2 sm:mb-3 text-lg sm:text-xl font-display text-espresso;
   }
   
   .prose p {
@@ -116,26 +116,36 @@ const relatedPicks = allPicks
   
   /* MDX specific styles */
   .mdx-content :global(h2) {
-    @apply mt-6 sm:mt-8 mb-3 sm:mb-6 text-xl sm:text-2xl font-display text-espresso text-center;
+    @apply mt-4 sm:mt-6 mb-3 sm:mb-4 text-xl sm:text-2xl font-display text-espresso text-center;
   }
   
   .mdx-content :global(h3) {
-    @apply mt-5 sm:mt-8 mb-2 sm:mb-4 text-lg sm:text-xl font-display text-espresso;
+    @apply mt-3 sm:mt-5 mb-2 sm:mb-3 text-lg sm:text-xl font-display text-espresso;
   }
   
   .mdx-content :global(.grid) {
-    @apply my-4 sm:my-8;
+    @apply my-3 sm:my-5;
   }
   
   .mdx-content :global(img) {
-    @apply rounded-lg mx-auto my-4 sm:my-6 max-w-full h-auto;
+    @apply rounded-lg mx-auto my-2 sm:my-3 w-full max-w-[180px] object-cover;
   }
   
   .mdx-content :global(a) {
-    @apply text-espresso underline hover:text-espresso/80 transition-colors;
+    @apply text-espresso no-underline hover:text-bronze transition-colors;
   }
   
-  .mdx-content :global(p) {
-    @apply text-sm sm:text-base text-bronze mb-4 sm:mb-6;
+  .mdx-content :global(p > img) {
+    @apply mx-auto my-2 w-full max-w-[180px] rounded-lg object-cover;
+  }
+
+  .mdx-content :global(h2 a),
+  .mdx-content :global(h3 a) {
+    @apply no-underline text-espresso hover:text-bronze;
+  }
+  
+  /* Image container styles */
+  .mdx-content :global(.aspect-ratio-container) {
+    @apply bg-white flex items-center justify-center;
   }
 </style> 

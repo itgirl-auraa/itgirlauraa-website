@@ -106,37 +106,39 @@ const isHomepage = Astro.url.pathname === '/';
 
 <script>
   // Mobile menu toggle
-  const button = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-  const menuOpenIcon = button?.querySelector('svg:first-child');
-  const menuCloseIcon = button?.querySelector('svg:last-child');
-  let isOpen = false;
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    const menuOpenIcon = button?.querySelector('svg:first-child');
+    const menuCloseIcon = button?.querySelector('svg:last-child');
+    let isOpen = false;
 
-  button?.addEventListener('click', () => {
-    isOpen = !isOpen;
-    if (menu) {
-      menu.classList.toggle('hidden', !isOpen);
-      
-      // Toggle the menu icons
-      if (menuOpenIcon && menuCloseIcon) {
-        menuOpenIcon.classList.toggle('hidden', isOpen);
-        menuCloseIcon.classList.toggle('hidden', !isOpen);
+    button?.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (menu) {
+        menu.classList.toggle('hidden', !isOpen);
+        
+        // Toggle the menu icons
+        if (menuOpenIcon && menuCloseIcon) {
+          menuOpenIcon.classList.toggle('hidden', isOpen);
+          menuCloseIcon.classList.toggle('hidden', !isOpen);
+        }
       }
-    }
-  });
+    });
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (event) => {
-    const target = event.target as Node;
-    if (isOpen && menu && button && !menu.contains(target) && !button.contains(target)) {
-      isOpen = false;
-      menu.classList.add('hidden');
-      
-      // Reset the menu icons
-      if (menuOpenIcon && menuCloseIcon) {
-        menuOpenIcon.classList.remove('hidden');
-        menuCloseIcon.classList.add('hidden');
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as Node;
+      if (isOpen && menu && button && !menu.contains(target) && !button.contains(target)) {
+        isOpen = false;
+        menu.classList.add('hidden');
+        
+        // Reset the menu icons
+        if (menuOpenIcon && menuCloseIcon) {
+          menuOpenIcon.classList.remove('hidden');
+          menuCloseIcon.classList.add('hidden');
+        }
       }
-    }
+    });
   });
 </script> 

@@ -13,22 +13,29 @@ import RoutineStep from '../../components/RoutineStep.astro';
 
 export const skincarePicks = [
   {
-    name: "Gentle Foaming Cleanser",
-    description: "A pH-balanced cleanser that removes impurities without stripping the skin.",
-    price: 24.99,
-    image: "https://images.unsplash.com/photo-1556228578-8d89313c5489?q=80&w=2000"
+    name: "Simple Micellar Gel Wash",
+    image: "/uploads/blog/recommendations/Simple Micellar Gel Wash.jpg",
+    url: "https://amzn.to/3HOJ2mW"
   },
   {
-    name: "Vitamin C Serum",
-    description: "A potent 15% vitamin C formula that brightens and protects the skin.",
-    price: 42.99,
-    image: "https://images.unsplash.com/photo-1556228578-8d89313c5489?q=80&w=2000"
+    name: "Plum Rice Water & Niacinamide Toner",
+    image: "/uploads/blog/recommendations/plum-toner.jpg",
+    url: "https://amzn.in/d/36uerME"
   },
   {
-    name: "Hyaluronic Acid Moisturizer",
-    description: "A lightweight moisturizer that provides 24-hour hydration.",
-    price: 38.50,
-    image: "https://images.unsplash.com/photo-1556228578-8d89313c5489?q=80&w=2000"
+    name: "Simple Micellar Gel Wash",
+    image: "/uploads/blog/recommendations/Simple Micellar Gel Wash.jpg",
+    url: "https://amzn.to/3HOJ2mW"
+  },
+  {
+    name: "Plum Rice Water & Niacinamide Toner",
+    image: "/uploads/blog/recommendations/plum-toner.jpg",
+    url: "https://amzn.in/d/36uerME"
+  },
+  {
+    name: "Plum Rice Water & Niacinamide Toner",
+    image: "/uploads/blog/recommendations/plum-toner.jpg",
+    url: "https://amzn.in/d/36uerME"
   }
 ];
 
@@ -96,15 +103,17 @@ Your skin repairs itself overnight, which is why having a dedicated morning rout
 
 These are the products I reach for every morning. They work beautifully together and have made a noticeable difference in my skin's texture and glow.
 
-<div className="grid grid-cols-3 gap-4 my-8">
-  {skincarePicks.map((product, index) => (
-    <ProductCard
-      key={index}
-      name={product.name}
-      description={product.description}
-      image={product.image}
-    />
-  ))}
+<div class="overflow-x-auto no-scrollbar">
+  <div class="flex gap-4 p-0 m-0">
+    {skincarePicks.map((product, index) => (
+      <ProductCard
+        key={index}
+        name={product.name}
+        image={product.image}
+        url={product.url}
+      />
+    ))}
+  </div>
 </div>
 
 ## The Importance of Layering Products Correctly

@@ -24,4 +24,18 @@
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
+  
+  .shop-button {
+    @apply bg-espresso text-white no-underline hover:bg-espresso/80 hover:text-white focus:text-white;
+    color: white !important;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 } 

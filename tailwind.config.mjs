@@ -12,7 +12,8 @@ export default {
         beige: '#E6E0D4',     // Light tan from scrubs/pouches
         bronze: '#9B6B4F',    // From Vaseline / skin tones
         cherry: '#6C1F24',    // Deep red from nails/lips
-        
+        white: '#FFFFFF',
+
         // Legacy colors (keeping for backward compatibility)
         primary: {
           DEFAULT: '#C4A3B0', // Same as blush

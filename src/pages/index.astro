@@ -107,16 +107,18 @@ const latestPosts = posts
 				{latestPosts.map((post, index) => (
 					<div class={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-5 sm:gap-6 md:gap-8 items-center`}>
 						<div class="w-full lg:w-1/2">
-							<div class="aspect-[16/12] sm:aspect-[4/3] overflow-hidden rounded-lg shadow-md">
-								<img 
-									src={post.data.image}
-									alt={post.data.title}
-									class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-									loading="lazy"
-									width="800"
-									height="600"
-								/>
-							</div>
+							<a href={`/blog/${post.slug}`} class="block">
+								<div class="aspect-[16/12] sm:aspect-[4/3] overflow-hidden rounded-lg shadow-md">
+									<img 
+										src={post.data.image}
+										alt={post.data.title}
+										class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+										loading="lazy"
+										width="800"
+										height="600"
+									/>
+								</div>
+							</a>
 						</div>
 						<div class="w-full lg:w-1/2 lg:px-6 mt-4 lg:mt-0">
 							<div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

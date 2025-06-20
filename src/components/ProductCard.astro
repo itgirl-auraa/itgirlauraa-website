@@ -11,22 +11,63 @@ interface Props {
 const { name, description, price, image, lazyLoad = true, url = "#" } = Astro.props;
 ---
 
-<article class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow h-full">
-  <a href={url} class="block h-full flex flex-col no-underline" aria-labelledby={`product-${name.replace(/\s+/g, '-').toLowerCase()}`}>
-    <div class="aspect-[1/1] overflow-hidden">
+<article class="min-w-[200px] max-w-[200px] flex-shrink-0 bg-white rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+  <a 
+    href={url} 
+    class="block no-underline h-full" 
+    target="_blank" 
+    rel="noopener noreferrer sponsored" 
+    aria-labelledby={`product-${name.replace(/\\s+/g, '-').toLowerCase()}`}
+  >
+    <div class="aspect-[2/3] bg-gray-50 w-full">
       <img 
         src={image} 
         alt={name}
         class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         loading={lazyLoad ? "lazy" : "eager"}
-        width="400"
-        height="400"
+        width="200"
+        height="300"
       />
     </div>
-    <div class="p-3 sm:p-4 flex-grow">
-      <h3 id={`product-${name.replace(/\s+/g, '-').toLowerCase()}`} class="font-display text-sm sm:text-base text-espresso mb-1 line-clamp-1">{name}</h3>
-      <p class="text-xs text-bronze line-clamp-2">{description}</p>
-      {price && <p class="font-medium text-espresso text-xs sm:text-sm mt-1 sm:mt-2" aria-label={`Price: $${price.toFixed(2)}`}>${price.toFixed(2)}</p>}
+    <div class="pt-2 pb-3 px-2">
+      <h3 
+        id={`product-${name.replace(/\\s+/g, '-').toLowerCase()}`} 
+        class="font-display text-sm text-espresso text-center leading-tight line-clamp-2 m-0 p-0 hover:text-bronze transition-colors"
+      >
+        {name}
+      </h3>
     </div>
   </a>
-</article> 
+</article>
+
+<style>
+  article {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  div {
+    margin: 0;
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+</style> 
