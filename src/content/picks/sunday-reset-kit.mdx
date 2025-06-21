@@ -1,0 +1,94 @@
+---
+title: "Sunday Reset Ritual – Slow Down, Glow Up"
+description: "A calming ritual for mind and skin. This kit helps you unplug, detox, and prep for the week ahead — all under ₹1,000."
+date: 2025-06-22
+category: "Wellness"
+featured: true
+image: "/uploads/picks/sunday-reset.jpg"
+---
+
+import ProductFeature from '../../components/ProductFeature.astro';
+
+export const products = [
+  {
+    title: "Soulflower Lavender Essential Oil",
+    description: "Calm your senses with a few drops in a diffuser or your bath. Known to ease stress and improve sleep quality.",
+    features: ["100% Pure", "Calms nerves", "Promotes deep sleep"],
+    image: "/uploads/picks/product/soulflower-lavender.jpg",
+    affiliateLink: "https://amzn.to/40isfyO"
+  },
+  {
+    title: "Kimirica Love Story Shower Gel",
+    description: "Gentle, luxurious, and vegan — perfect for a mindful Sunday shower. Smells divine and doesn’t strip your skin.",
+    features: ["Vegan & Cruelty-free", "Romantic floral scent", "Leaves skin soft"],
+    image: "/uploads/picks/product/kimirica-shower.jpg",
+    affiliateLink: "https://amzn.to/4li88sP"
+  },
+  {
+    title: "Minimal Doodle Journal + Pen Set",
+    description: "Reflect, plan, or brain-dump your week. Minimal, aesthetic, and therapeutic.",
+    features: ["Minimal design", "Smooth paper", "Perfect for journaling"],
+    image: "/uploads/picks/product/doodle-journal.png",
+    affiliateLink: "https://amzn.to/3HTkXLG"
+  },
+  {
+    title: "Plum Green Tea Clear Face Mask",
+    description: "The reset your skin craves. Green tea, glycolic acid, and kaolin clay clear clogged pores and leave you glowing.",
+    features: ["Fights acne", "Instant glow", "Gentle exfoliation"],
+    image: "/uploads/picks/product/plum-mask.jpg",
+    affiliateLink: "https://amzn.in/d/8q9In00"
+  },
+  {
+    title: "Cotton Spa Headband",
+    description: "Keep your hair back and vibe while masking, journaling, or sipping tea. Essential for a spa moment.",
+    features: ["Soft stretch cotton", "Cute bow design", "Washable"],
+    image: "/uploads/picks/product/spa-headband.jpg",
+    affiliateLink: "https://amzn.to/3GaN5cz"
+  }
+];
+
+## What's Included
+
+{products.map((product, index) => (
+  <ProductFeature 
+    key={index}
+    title={product.title}
+    description={product.description}
+    features={product.features}
+    image={product.image}
+    isReversed={index % 2 !== 0}
+    affiliateLink={product.affiliateLink}
+  />
+))}
+
+## Why You'll Love This Routine
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {[
+    "Feel calmer and more grounded by Sunday night",
+    "Gives your skin a detox and glow boost",
+    "All products are under ₹1,000 and available on Amazon",
+    "Perfect ritual to pair with music or journaling",
+    "Supports your mental reset and self-worth",
+    "You’ll go into Monday feeling fresh, not frantic"
+  ].map((benefit, index) => (
+    <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="flex items-start">
+        <span className="text-espresso mr-3 text-xl">✓</span>
+        <span className="text-bronze">{benefit}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+## Routine Steps
+
+1. Light your diffuser with **Soulflower Lavender Oil** and play a slow playlist.  
+2. Take a long, mindful shower with the **Kimirica Gel**.  
+3. Apply **Plum Face Mask**, tie your hair with the **Headband**, and relax.  
+4. Journal with the **Doodle Set** — brain dump, reflect, or set intentions.  
+5. Breathe deeply. Hydrate. Light stretch or read to finish.
+
+<div className="bg-espresso-10 p-6 rounded-lg mt-4 text-center">
+  <p className="text-espresso italic">Reset isn't a luxury, it's a lifestyle. Let your Sundays feel like soft magic.</p>
+</div>
